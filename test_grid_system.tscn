@@ -1,0 +1,105 @@
+[gd_scene load_steps=24 format=3 uid="uid://5xki7cjncade"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridManager.gd" id="1_xx8qn"]
+[ext_resource type="Resource" uid="uid://cjrpr2ntqnd7s" path="res://Resources/LevelData/TestLevel.tres" id="2_i006t"]
+[ext_resource type="Script" path="res://Scripts/Commands/ForLoop.gd" id="2_wg84c"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="3_ipsnc"]
+[ext_resource type="PackedScene" uid="uid://dy7xs2oi243vd" path="res://Prefab/grid_tile.tscn" id="3_y32g5"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="4_xk82o"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="5_y37kf"]
+[ext_resource type="Script" path="res://Scripts/Attack/WhileLoop.gd" id="9_kwq8n"]
+[ext_resource type="PackedScene" uid="uid://dbw3rxrj4j1ny" path="res://Prefab/attack_projectile.tscn" id="10_4itp5"]
+[ext_resource type="PackedScene" uid="uid://bcdkdfn2vmlc3" path="res://Prefab/attack_preview.tscn" id="11_6c2l6"]
+
+[sub_resource type="Gradient" id="Gradient_y8r3r"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y2kln"]
+gradient = SubResource("Gradient_y8r3r")
+
+[sub_resource type="Gradient" id="Gradient_4e2tt"]
+colors = PackedColorArray(0.32203, 0.623698, 0, 1, 0.941187, 0.477588, 3.85046e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3yp3f"]
+gradient = SubResource("Gradient_4e2tt")
+
+[sub_resource type="Resource" id="Resource_3ddtt"]
+script = ExtResource("4_xk82o")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_e48qv"]
+script = ExtResource("4_xk82o")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_nms2n"]
+script = ExtResource("3_ipsnc")
+grid_column = Array[ExtResource("4_xk82o")]([SubResource("Resource_3ddtt"), null, SubResource("Resource_e48qv")])
+
+[sub_resource type="Resource" id="Resource_tb7bt"]
+script = ExtResource("4_xk82o")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_1ylht"]
+script = ExtResource("3_ipsnc")
+grid_column = Array[ExtResource("4_xk82o")]([SubResource("Resource_tb7bt"), SubResource("Resource_3ddtt"), null])
+
+[sub_resource type="Resource" id="Resource_572wl"]
+script = ExtResource("4_xk82o")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_x27gy"]
+script = ExtResource("3_ipsnc")
+grid_column = Array[ExtResource("4_xk82o")]([null, SubResource("Resource_572wl"), null])
+
+[sub_resource type="Resource" id="Resource_qfi34"]
+script = ExtResource("5_y37kf")
+grid = Array[ExtResource("3_ipsnc")]([SubResource("Resource_nms2n"), SubResource("Resource_1ylht"), SubResource("Resource_x27gy")])
+offset = Vector2(0, 0)
+
+[node name="TestGridSystem" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_dkclg")
+level_data = ExtResource("2_i006t")
+
+[node name="TestLabel" type="Label" parent="GameManager"]
+offset_left = -113.0
+offset_top = -177.0
+offset_right = -73.0
+offset_bottom = -154.0
+text = "Test
+"
+
+[node name="ForLoop" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_wg84c")
+
+[node name="CharacterSprite" type="Sprite2D" parent="ForLoop"]
+position = Vector2(-400, 0)
+texture = SubResource("GradientTexture2D_y2kln")
+
+[node name="WhileLoop" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("9_kwq8n")
+
+[node name="CharacterSprite" type="Sprite2D" parent="WhileLoop"]
+position = Vector2(400, 0)
+texture = SubResource("GradientTexture2D_3yp3f")
+
+[node name="GridManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_xx8qn")
+grid = SubResource("Resource_qfi34")
+
+[node name="GridTile" parent="." instance=ExtResource("3_y32g5")]
+visible = false
+
+[node name="AttackProjectile" parent="." instance=ExtResource("10_4itp5")]
+visible = false
+
+[node name="AttackPreview" parent="." instance=ExtResource("11_6c2l6")]
+visible = false

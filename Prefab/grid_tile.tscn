@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy7xs2oi243vd"]
+
+[ext_resource type="Script" path="res://Scripts/Grid/GridTile.gd" id="1_ju7xe"]
+
+[sub_resource type="Gradient" id="Gradient_lmv5y"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v8dcd"]
+gradient = SubResource("Gradient_lmv5y")
+
+[node name="GridTile" type="Node2D"]
+script = ExtResource("1_ju7xe")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_v8dcd")

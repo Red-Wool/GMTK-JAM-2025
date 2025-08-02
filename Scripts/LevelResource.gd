@@ -1,0 +1,12 @@
+class_name LevelResource extends Resource
+
+@export var level_name : String
+
+@export var grid_data : GridLevelResource
+
+@export var commands : Array[CommandResource]
+
+@export var while_loop_hp : int
+@export var attack_data : Array[WhileAttackResource]
+
+#put more data later

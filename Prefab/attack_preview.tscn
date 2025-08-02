@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcdkdfn2vmlc3"]
+
+[ext_resource type="Texture2D" uid="uid://bcv3mum5yrcsr" path="res://Art/GMTKTempAssets2.png" id="1_50pm8"]
+
+[node name="AttackPreview" type="Node2D"]
+position = Vector2(145, 3)
+rotation = 3.14159
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_50pm8")

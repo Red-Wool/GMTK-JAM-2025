@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd4nre7i6u34s"]
+
+[ext_resource type="Script" path="res://Scripts/Grid/PointerGridObject.gd" id="1_x3wwg"]
+[ext_resource type="Texture2D" uid="uid://c84nrsu2u5aeh" path="res://Art/GMTKTempAssets.png" id="2_r8h1a"]
+
+[node name="PointerGridObjectRight" type="Node2D"]
+script = ExtResource("1_x3wwg")
+direction = Vector2i(-1, 0)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.14159
+texture = ExtResource("2_r8h1a")

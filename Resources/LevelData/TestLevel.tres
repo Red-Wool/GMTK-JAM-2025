@@ -82,7 +82,7 @@ grid_column = Array[ExtResource("4_7dknx")]([SubResource("Resource_2f8vf"), SubR
 [sub_resource type="Resource" id="Resource_f4r3f"]
 script = ExtResource("4_gnakg")
 grid = Array[ExtResource("3_juqtb")]([SubResource("Resource_fmb4j"), SubResource("Resource_x7udr"), SubResource("Resource_omr6h"), SubResource("Resource_renmf")])
-offset = Vector2(-128, -96)
+offset = Vector2(-96, -64)
 
 [resource]
 script = ExtResource("3_x8ydi")

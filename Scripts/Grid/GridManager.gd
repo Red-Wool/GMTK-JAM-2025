@@ -71,6 +71,9 @@ func _move_hit_character(proj : AttackProjectile, attack_for : bool, t : float =
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(proj, "global_position:y", game_manager.for_loop.sprite.global_position.y, t)
 	
+	get_tree().create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)\
+		.tween_property(proj, "rotation_degrees", -1500 if attack_for else 1500, t*2.)
+	
 	await get_tree().create_timer(t*2.)
 
 func _outer_bounds(pos : Vector2i) -> bool:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://5xki7cjncade"]
+[gd_scene load_steps=23 format=3 uid="uid://5xki7cjncade"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridManager.gd" id="1_xx8qn"]
 [ext_resource type="Resource" uid="uid://cjrpr2ntqnd7s" path="res://Resources/LevelData/TestLevel.tres" id="2_i006t"]
 [ext_resource type="Script" path="res://Scripts/Commands/ForLoop.gd" id="2_wg84c"]
+[ext_resource type="Texture2D" uid="uid://cbxhlij12ad8l" path="res://Art/CursorSingle.png" id="3_67dwg"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="3_ipsnc"]
 [ext_resource type="PackedScene" uid="uid://dy7xs2oi243vd" path="res://Prefab/grid_tile.tscn" id="3_y32g5"]
 [ext_resource type="Texture2D" uid="uid://db5i6kwbmsu8l" path="res://Art/Character/FOR_neutral.png" id="4_rkrjk"]
@@ -63,6 +64,11 @@ offset_right = -73.0
 offset_bottom = -154.0
 text = "Test
 "
+
+[node name="Reticle" type="Sprite2D" parent="GameManager"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_67dwg")
 
 [node name="ForLoop" type="Node2D" parent="."]
 unique_name_in_owner = true

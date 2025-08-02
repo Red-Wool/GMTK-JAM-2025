@@ -22,7 +22,7 @@ var attack_projectile_array : Array[AttackProjectile]
 var attack_previews : Array[Node2D]
 
 var current_step_count : int = 0
-var infinite_loop_step_count : int = 256
+var infinite_loop_step_count : int = 128
 
 @onready var sprite : Sprite2D = $CharacterSprite
 
@@ -123,7 +123,7 @@ func _infinite_state():
 	for proj : AttackProjectile in attack_projectile_array:
 		if !proj.is_dead:
 			health -= 1
-			game_manager.grid_manager.
+			game_manager.grid_manager._move_hit_character(proj, false, .1)
 		
 		is_dead = health <= 0
 	_end_turn()

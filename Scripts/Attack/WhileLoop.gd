@@ -123,6 +123,7 @@ func _infinite_state():
 	for proj : AttackProjectile in attack_projectile_array:
 		if !proj.is_dead:
 			health -= 1
+			game_manager.grid_manager.
 		
 		is_dead = health <= 0
 	_end_turn()

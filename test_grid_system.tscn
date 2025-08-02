@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://5xki7cjncade"]
+[gd_scene load_steps=22 format=3 uid="uid://5xki7cjncade"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridManager.gd" id="1_xx8qn"]
@@ -6,23 +6,13 @@
 [ext_resource type="Script" path="res://Scripts/Commands/ForLoop.gd" id="2_wg84c"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="3_ipsnc"]
 [ext_resource type="PackedScene" uid="uid://dy7xs2oi243vd" path="res://Prefab/grid_tile.tscn" id="3_y32g5"]
+[ext_resource type="Texture2D" uid="uid://db5i6kwbmsu8l" path="res://Art/Character/FOR_neutral.png" id="4_rkrjk"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="4_xk82o"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="5_y37kf"]
+[ext_resource type="Texture2D" uid="uid://re6sp7henqtc" path="res://Art/Character/WHILE_neutral.png" id="6_evxij"]
 [ext_resource type="Script" path="res://Scripts/Attack/WhileLoop.gd" id="9_kwq8n"]
 [ext_resource type="PackedScene" uid="uid://dbw3rxrj4j1ny" path="res://Prefab/attack_projectile.tscn" id="10_4itp5"]
 [ext_resource type="PackedScene" uid="uid://bcdkdfn2vmlc3" path="res://Prefab/attack_preview.tscn" id="11_6c2l6"]
-
-[sub_resource type="Gradient" id="Gradient_y8r3r"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y2kln"]
-gradient = SubResource("Gradient_y8r3r")
-
-[sub_resource type="Gradient" id="Gradient_4e2tt"]
-colors = PackedColorArray(0.32203, 0.623698, 0, 1, 0.941187, 0.477588, 3.85046e-07, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3yp3f"]
-gradient = SubResource("Gradient_4e2tt")
 
 [sub_resource type="Resource" id="Resource_3ddtt"]
 script = ExtResource("4_xk82o")
@@ -80,7 +70,8 @@ script = ExtResource("2_wg84c")
 
 [node name="CharacterSprite" type="Sprite2D" parent="ForLoop"]
 position = Vector2(-400, 0)
-texture = SubResource("GradientTexture2D_y2kln")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_rkrjk")
 
 [node name="WhileLoop" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -88,7 +79,8 @@ script = ExtResource("9_kwq8n")
 
 [node name="CharacterSprite" type="Sprite2D" parent="WhileLoop"]
 position = Vector2(400, 0)
-texture = SubResource("GradientTexture2D_3yp3f")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_evxij")
 
 [node name="GridManager" type="Node2D" parent="."]
 unique_name_in_owner = true

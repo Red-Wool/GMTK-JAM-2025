@@ -152,8 +152,8 @@ offset = Vector2(-128, -128)
 [resource]
 script = ExtResource("3_b0053")
 level_name = "Circular Reasoning"
-next_level_data = ""
-next_scene = "res://test_grid_system.tscn"
+next_level_data = "res://Resources/LevelData/PushyLevel.tres"
+next_scene = "res://EndingScene.tscn"
 grid_data = SubResource("Resource_1sop4")
 commands = Array[ExtResource("2_25pm5")]([ExtResource("3_8hu7w"), ExtResource("3_8hu7w"), ExtResource("3_8hu7w"), ExtResource("3_8hu7w")])
 while_loop_hp = 4

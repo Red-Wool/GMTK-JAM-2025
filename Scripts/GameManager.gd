@@ -27,6 +27,7 @@ var is_win : bool
 @onready var test_label : Label = $WhileLabel
 @onready var title_label : Label = $TitleLabel
 @onready var display_label : Label = $DisplayLabel
+@onready var tutorial_label : Label = $Tutorial
 
 @onready var aim_reticle : Sprite2D = $Reticle
 @onready var aim_reticle_preview : Sprite2D = $Preview
@@ -150,6 +151,7 @@ func _start_level():
 	for_loop._setup(level_data._duplicate_commands())
 	while_loop._setup(level_data.while_loop_hp, level_data.attack_data)
 	title_label.text = level_data.level_name
+	tutorial_label.text = level_data.description
 	await get_tree().create_timer(2.).timeout
 	create_tween().tween_property(title_label, "modulate:a", 0, 1.)
 
@@ -175,8 +177,10 @@ func _start_turn():
 func _end_turn():
 	initiate_start = false
 	if for_loop.is_dead:
+		tutorial_label.visible = false
 		lose_level()
 	elif while_loop.is_dead:
+		tutorial_label.visible = false
 		win_level()
 	
 	

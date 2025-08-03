@@ -23,6 +23,11 @@ func _set_up(grid : GridManager, pos : Vector2i):
 	global_position =  grid_manager._grid_to_world_position(grid_position)
 	velocity = Vector2i.LEFT
 	is_dead = false
+	
+	if grid_manager._check_tile(pos):
+		var tile : GridTile = grid_manager._get_tile(pos)
+		if (tile.grid_object) != null:
+			tile.grid_object._action(self, velocity)
 
 func _start():
 	is_paused = false

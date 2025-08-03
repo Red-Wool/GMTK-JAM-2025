@@ -67,6 +67,7 @@ offset = Vector2(-64, -64)
 [resource]
 script = ExtResource("3_wqt7i")
 level_name = "Hello World"
+description = "Send Projectiles in an infinite loop to damage While!"
 next_level_data = "res://Resources/LevelData/MoveLevel.tres"
 next_scene = "res://test_grid_system.tscn"
 grid_data = SubResource("Resource_iqw28")

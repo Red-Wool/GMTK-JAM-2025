@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://5xki7cjncade"]
+[gd_scene load_steps=39 format=3 uid="uid://5xki7cjncade"]
 
 [ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_8q5g0"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bcdkdfn2vmlc3" path="res://Prefab/attack_preview.tscn" id="11_6c2l6"]
 [ext_resource type="Texture2D" uid="uid://c1sp4ycobfgo1" path="res://Art/small angy face.png" id="16_v6apa"]
 [ext_resource type="Texture2D" uid="uid://pe21r68uj4o0" path="res://Art/EnemyArrow.png" id="17_kkuai"]
+[ext_resource type="Texture2D" uid="uid://dqq16aqt2w4hn" path="res://Resources/Blackhole.png" id="26_nuagv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xiwl1"]
 shader = ExtResource("6_ockrj")
@@ -115,6 +116,20 @@ theme_override_fonts/font = ExtResource("5_rhojo")
 theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 
+[node name="Tutorial" type="Label" parent="GameManager"]
+z_index = 11
+offset_left = -250.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_rhojo")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TitleLabel" type="Label" parent="GameManager"]
 z_index = 11
 offset_left = -250.0
@@ -139,6 +154,20 @@ theme_override_fonts/font = ExtResource("5_rhojo")
 theme_override_font_sizes/font_size = 50
 text = "While
 5 HP"
+horizontal_alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="GameManager"]
+z_index = 100
+offset_left = 312.0
+offset_top = 215.0
+offset_right = 551.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_rhojo")
+theme_override_font_sizes/font_size = 25
+text = "WASD - MOVE
+J - Action
+Space - Skip Turn"
 horizontal_alignment = 1
 
 [node name="Reticle" type="Sprite2D" parent="GameManager"]
@@ -321,3 +350,10 @@ visible = false
 
 [node name="AttackPreview" parent="." instance=ExtResource("11_6c2l6")]
 visible = false
+
+[node name="BG" type="Sprite2D" parent="."]
+modulate = Color(0.219501, 0.219501, 0.219501, 1)
+z_index = -100
+texture_filter = 1
+position = Vector2(1, -65)
+texture = ExtResource("26_nuagv")

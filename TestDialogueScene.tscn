@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cr0grbtgxqhma"]
+[gd_scene load_steps=65 format=3 uid="uid://cr0grbtgxqhma"]
 
 [ext_resource type="Script" path="res://Scripts/Dialogue/Chatbox.cs" id="1_ewlf7"]
 [ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_qxwwj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://re6sp7henqtc" path="res://Art/Character/WHILE_neutral.png" id="5_g05ws"]
 [ext_resource type="Script" path="res://Scripts/Dialogue/ChatEventAnimation.cs" id="6_wlfwk"]
 [ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="7_4ika4"]
+[ext_resource type="Script" path="res://Continue.gd" id="13_x5q6j"]
 
 [sub_resource type="Theme" id="Theme_xyo1f"]
 
@@ -597,6 +598,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Transition" parent="." instance=ExtResource("1_qxwwj")]
+unique_name_in_owner = true
 position = Vector2(578, 343)
 
 [node name="Panel" type="Panel" parent="."]
@@ -681,4 +683,16 @@ scale = Vector2(0.6, 0.6)
 theme = SubResource("Theme_lqjbd")
 text = "Nobody is typing"
 
-[connection signal="FinishedDialogue" from="Chatbox" to="Transition" method="_on_chatbox_finished_dialogue"]
+[node name="Continue" type="Label" parent="Chatbox"]
+visible = false
+layout_mode = 0
+offset_left = 318.0
+offset_top = 386.0
+offset_right = 637.0
+offset_bottom = 415.0
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_lqjbd")
+text = "Press Space to continue"
+script = ExtResource("13_x5q6j")
+
+[connection signal="FinishedDialogue" from="Chatbox" to="Chatbox/Continue" method="_on_chatbox_finished_dialogue"]

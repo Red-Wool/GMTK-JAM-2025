@@ -841,7 +841,7 @@ gotoscene = "res://TheEnd.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_4piy0")
-volume_db = -6.555
+volume_db = -13.547
 autoplay = true
 
 [connection signal="FinishedDialogue" from="Chatbox" to="Chatbox/Continue" method="_on_chatbox_finished_dialogue"]

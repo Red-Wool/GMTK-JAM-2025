@@ -8,7 +8,7 @@ var timer : float
 
 @onready var attack_sprite : Texture2D = preload("res://Art/small angy face.png")
 @onready var big_attack_sprite : Texture2D = preload("res://Art/Big angy face-1.png.png")
-@onready var waiting_sprite : Texture2D = preload("res://Art/Metronome-1.png.png")
+@onready var waiting_sprite : Texture2D = preload("res://Art/small waiting face.png")
 
 func _process(delta):
 	timer += delta * .75

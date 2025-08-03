@@ -40,6 +40,7 @@ func _create_level(data : GridLevelResource):
 			if grid.look_up_table._has(point.grid_prefab_name):
 				var grid_object : GridObject = load(grid.look_up_table._get_object(point.grid_prefab_name)).instantiate()
 				tile._set_object(grid_object)
+				grid_object.grid_position = Vector2i(x,y)
 			
 		x += 1
 
@@ -55,6 +56,9 @@ func _move_projectile(proj : AttackProjectile, pos : Vector2i, t : float = .5) -
 		else:
 			proj._disappear()
 		proj._destroy()
+		return false
+	
+	if !_check_tile(pos):
 		return false
 	
 	var tile : GridTile = _get_tile(pos)
@@ -93,6 +97,9 @@ func _bounds(pos : Vector2i) -> bool:
 func _grid_to_world_position(pos : Vector2i) -> Vector2:
 	return Vector2(pos) * grid_size + grid.offset
 
+func _check_tile(pos : Vector2i) -> bool:
+	return grid.grid[pos.x].grid_column[pos.y] != null
+
 func _get_tile(pos : Vector2i) -> GridTile:
 	return grid.grid[pos.x].grid_column[pos.y].grid_tile
 
@@ -127,6 +134,7 @@ func _push_object(pos : Vector2i, dir : Vector2i):
 		_death_object(obj,_grid_to_world_position(v+dir))
 	
 	for v : Vector2i in push_stack:
+		_get_tile(v).grid_object.grid_position = v+dir
 		_set_tile_item(v+dir,_get_tile(v).grid_object)
 		_move_object(_get_tile(v).grid_object, _grid_to_world_position(v+dir))
 	_set_tile_item(push_stack[push_stack.size()-1], null)

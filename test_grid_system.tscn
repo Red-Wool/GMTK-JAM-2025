@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://5xki7cjncade"]
+[gd_scene load_steps=40 format=3 uid="uid://5xki7cjncade"]
 
 [ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_8q5g0"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c1sp4ycobfgo1" path="res://Art/small angy face.png" id="16_v6apa"]
 [ext_resource type="Texture2D" uid="uid://pe21r68uj4o0" path="res://Art/EnemyArrow.png" id="17_kkuai"]
 [ext_resource type="Texture2D" uid="uid://dqq16aqt2w4hn" path="res://Resources/Blackhole.png" id="26_nuagv"]
+[ext_resource type="AudioStream" uid="uid://fonj6dsodfiw" path="res://Art/SpotiDownloader.com - planet inhabited entirely by frogs - Disuko.mp3" id="27_vqgvt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xiwl1"]
 shader = ExtResource("6_ockrj")
@@ -360,3 +361,7 @@ visible = false
 
 [node name="AttackPreview" parent="." instance=ExtResource("11_6c2l6")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_vqgvt")
+autoplay = true

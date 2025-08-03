@@ -1,0 +1,678 @@
+[gd_scene load_steps=63 format=3 uid="uid://cqah28cmdquyu"]
+
+[ext_resource type="Script" path="res://Scripts/Dialogue/Chatbox.cs" id="1_ewlf7"]
+[ext_resource type="Script" path="res://Scripts/Dialogue/ChatMessageResource.cs" id="2_1y5ur"]
+[ext_resource type="Texture2D" uid="uid://uu0s2vupswm5" path="res://Art/Character/FOR_thinking.png" id="2_6qyok"]
+[ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="3_722l3"]
+[ext_resource type="Texture2D" uid="uid://dvtado61umq4t" path="res://Art/Character/Unknown.png" id="3_ihwhp"]
+[ext_resource type="Texture2D" uid="uid://db5i6kwbmsu8l" path="res://Art/Character/FOR_neutral.png" id="4_0r40l"]
+[ext_resource type="Texture2D" uid="uid://dbx6rea7coh4l" path="res://Art/Character/WHILE_hurt.png" id="4_msdd1"]
+[ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="4_wb3wi"]
+[ext_resource type="Texture2D" uid="uid://re6sp7henqtc" path="res://Art/Character/WHILE_neutral.png" id="5_g05ws"]
+[ext_resource type="Script" path="res://Scripts/Dialogue/ChatEventAnimation.cs" id="6_wlfwk"]
+[ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="7_4ika4"]
+
+[sub_resource type="Theme" id="Theme_xyo1f"]
+
+[sub_resource type="Gradient" id="Gradient_g0odq"]
+offsets = PackedFloat32Array(0, 0.509284, 1)
+colors = PackedColorArray(0.861438, 0.567312, 0.451627, 1, 0.844969, 0.683186, 0.36787, 1, 0.560518, 0.893711, 0.530188, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nulvu"]
+gradient = SubResource("Gradient_g0odq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ido63"]
+texture = SubResource("GradientTexture1D_nulvu")
+modulate_color = Color(0.595809, 0.528208, 0.633506, 1)
+
+[sub_resource type="Animation" id="Animation_17831"]
+resource_name = "FOR-Neutral"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_0r40l")]
+}
+
+[sub_resource type="Animation" id="Animation_b3du0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_0r40l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WHILE:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ihwhp")]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FOR:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(16.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../FOR:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(163, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../WHILE:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(764, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../WHILE:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(155, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../WHILE:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.46, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../WHILE:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.46, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_j2q8p"]
+resource_name = "FOR-Thinking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_6qyok")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FOR:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.533333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FOR:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(163, -0.25, 0, 0.25, 0, 117.785, -0.25, 0, 0.25, 0, 163, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.533333)
+}
+
+[sub_resource type="Animation" id="Animation_v67em"]
+resource_name = "WHILE-hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WHILE:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_msdd1"), ExtResource("4_msdd1")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WHILE:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.1309, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../WHILE:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(764, -0.25, 0, 0.25, 0, 700.665, -0.25, 0, 0.25, 0, 764, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../WHILE:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(155, -0.25, 0, 0.25, 0, 133.8, -0.25, 0, 0.25, 0, 155, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../WHILE:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.46, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../WHILE:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.46, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+
+[sub_resource type="Animation" id="Animation_v47tt"]
+resource_name = "FOR-Happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_wb3wi"), ExtResource("4_wb3wi")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FOR:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.833333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FOR:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(163, -0.25, 0, 0.25, 0, 130, -0.25, 0, 0.25, 0, 163, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.833333)
+}
+
+[sub_resource type="Animation" id="Animation_tfe6p"]
+resource_name = "WHILE-Neutral"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WHILE:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_g05ws")]
+}
+
+[sub_resource type="Animation" id="Animation_wfqd3"]
+resource_name = "WHILE-Happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WHILE:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_4ika4")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04uld"]
+_data = {
+"FOR-Happy": SubResource("Animation_v47tt"),
+"FOR-Neutral": SubResource("Animation_17831"),
+"FOR-Thinking": SubResource("Animation_j2q8p"),
+"RESET": SubResource("Animation_b3du0"),
+"WHILE-Happy": SubResource("Animation_wfqd3"),
+"WHILE-Neutral": SubResource("Animation_tfe6p"),
+"WHILE-hurt": SubResource("Animation_v67em")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8c26"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Resource" id="Resource_2qxj5"]
+script = ExtResource("2_1y5ur")
+name = "UNKNOWN ID"
+message = "UNKNOWN ID: Today's the day you meet your doom, For.
+"
+delayStart = 0.0
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_jgwye"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: um? who is this?
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_gxi0m"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Thinking"
+
+[sub_resource type="Resource" id="Resource_m6g86"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: how'd you do that with ur name
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_3fmpp"]
+script = ExtResource("2_1y5ur")
+name = "UNKNOWN ID"
+message = "UNKNOWN ID: Who cares how I did it. I'm here to destroy you.
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_4j17c"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: i was just curious
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_csf04"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Neutral"
+
+[sub_resource type="Resource" id="Resource_6g0mx"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: it's cool
+"
+delayStart = 0.0
+delayType = 1.5
+
+[sub_resource type="Resource" id="Resource_1uscu"]
+script = ExtResource("2_1y5ur")
+name = "UNKNOWN ID"
+message = "UNKNOWN ID: Can you please focus >:P
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_qb8fj"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: wait
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_6is5k"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Thinking"
+
+[sub_resource type="Resource" id="Resource_dq2n2"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = ""
+delayStart = 2.5
+delayType = 0.5
+
+[sub_resource type="Resource" id="Resource_mduxo"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = ""
+delayStart = 2.5
+delayType = 0.5
+
+[sub_resource type="Resource" id="Resource_upymf"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: while? that you?
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_uxsa4"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: WHAT?! HOW
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_5dng6"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-hurt"
+
+[sub_resource type="Resource" id="Resource_foimq"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: overly formal speaking... emoticons as outdated as u are...
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_whkon"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Happy"
+
+[sub_resource type="Resource" id="Resource_lo7dt"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "you know i'd recognize ya anywhere, do-do ;D
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_4yn48"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: DO NOT CALL ME THAT"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_2hdm3"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: hehe uh so anyway
+"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_2gsx7"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Neutral"
+
+[sub_resource type="Resource" id="Resource_jsorw"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: what's the thing about destroying me
+"
+delayStart = 0.0
+delayType = 1.0
+
+[sub_resource type="Resource" id="Resource_8etoi"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: The 'thing' is that I've had it with you always being the more popular one."
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_7t61e"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: There's nothing you can do that I can't, and I plan to prove it today."
+delayStart = 0.0
+delayType = 3.0
+
+[sub_resource type="Resource" id="Resource_2r5x2"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: I challenge you..."
+delayStart = 0.0
+delayType = 3.0
+
+[sub_resource type="Resource" id="Resource_bhau7"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: To a duel."
+delayStart = 0.0
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_p5x0s"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-Happy"
+
+[sub_resource type="Resource" id="Resource_4fo6b"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: are you fr rn."
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_rn2gb"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Thinking"
+
+[sub_resource type="Resource" id="Resource_bdcns"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: Duh."
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_538e2"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: fine boo. let's do it"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_hjtde"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Happy"
+
+[sub_resource type="Resource" id="Resource_3iatm"]
+script = ExtResource("2_1y5ur")
+name = "FOR"
+message = "FOR: (and maybe... if i can just get through to her... we can put our differences aside...)"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_ew3fk"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Neutral"
+
+[sub_resource type="Resource" id="Resource_dga0i"]
+script = ExtResource("2_1y5ur")
+name = "WHILE"
+message = "WHILE: Why did you type that out loud."
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_1myo6"]
+script = ExtResource("6_wlfwk")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-hurt"
+
+[sub_resource type="Theme" id="Theme_lqjbd"]
+default_font = ExtResource("3_722l3")
+default_font_size = 28
+
+[node name="DialogueScene" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 657.0
+theme = SubResource("Theme_xyo1f")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ido63")
+
+[node name="CharacterAnimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Chatbox")
+libraries = {
+"": SubResource("AnimationLibrary_04uld")
+}
+
+[node name="FOR" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 16.395
+offset_top = 163.0
+offset_right = 890.395
+offset_bottom = 1379.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_0r40l")
+
+[node name="WHILE" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 155.0
+offset_right = 1638.0
+offset_bottom = 1371.0
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("3_ihwhp")
+
+[node name="Chatbox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -196.0
+offset_right = 256.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 200)
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8c26")
+script = ExtResource("1_ewlf7")
+chatMessages = Array[Object]([SubResource("Resource_2qxj5"), SubResource("Resource_jgwye"), SubResource("Resource_gxi0m"), SubResource("Resource_m6g86"), SubResource("Resource_3fmpp"), SubResource("Resource_4j17c"), SubResource("Resource_csf04"), SubResource("Resource_6g0mx"), SubResource("Resource_1uscu"), SubResource("Resource_qb8fj"), SubResource("Resource_6is5k"), SubResource("Resource_dq2n2"), SubResource("Resource_mduxo"), SubResource("Resource_upymf"), SubResource("Resource_uxsa4"), SubResource("Resource_5dng6"), SubResource("Resource_foimq"), SubResource("Resource_whkon"), SubResource("Resource_lo7dt"), SubResource("Resource_4yn48"), SubResource("Resource_2hdm3"), SubResource("Resource_2gsx7"), SubResource("Resource_jsorw"), SubResource("Resource_8etoi"), SubResource("Resource_7t61e"), SubResource("Resource_2r5x2"), SubResource("Resource_bhau7"), SubResource("Resource_p5x0s"), SubResource("Resource_4fo6b"), SubResource("Resource_rn2gb"), SubResource("Resource_bdcns"), SubResource("Resource_538e2"), SubResource("Resource_hjtde"), SubResource("Resource_3iatm"), SubResource("Resource_ew3fk"), SubResource("Resource_dga0i"), SubResource("Resource_1myo6")])
+FORColor = Color(0.929102, 0.776327, 0.811101, 1)
+WHILEColor = Color(0.586862, 0.82933, 0.615846, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Chatbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 11.12)
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Chatbox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="Chatbox"]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 360.0
+offset_right = 251.0
+offset_bottom = 389.0
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_lqjbd")
+text = "Nobody is typing"

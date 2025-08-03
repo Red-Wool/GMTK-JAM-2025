@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6gbu6jorb6k"]
+
+[ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="1_hc6xg"]
+
+[sub_resource type="Theme" id="Theme_83rre"]
+default_font = ExtResource("1_hc6xg")
+default_font_size = 28
+
+[node name="ChatMessage" type="RichTextLabel"]
+theme = SubResource("Theme_83rre")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "FOR: test dialogue test dialogue test dialogue"
+fit_content = true

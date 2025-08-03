@@ -25,3 +25,7 @@ func _gottoscene(scene : String):
 	anim.play("closing")
 	await get_tree().create_timer(1.6).timeout
 	get_tree().change_scene_to_file(scene)
+
+
+func _on_chatbox_finished_dialogue():
+	_gottoscene("res://test_grid_system.tscn")

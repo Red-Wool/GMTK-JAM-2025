@@ -680,3 +680,5 @@ offset_bottom = 389.0
 scale = Vector2(0.6, 0.6)
 theme = SubResource("Theme_lqjbd")
 text = "Nobody is typing"
+
+[connection signal="FinishedDialogue" from="Chatbox" to="Transition" method="_on_chatbox_finished_dialogue"]

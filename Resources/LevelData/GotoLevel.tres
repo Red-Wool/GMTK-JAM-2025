@@ -104,7 +104,8 @@ offset = Vector2(-96, -96)
 [resource]
 script = ExtResource("3_gst1t")
 level_name = "Goto"
-next_level_data = "res://Resources/LevelData/GriddyLevel.tres"
+description = ""
+next_level_data = "res://Resources/LevelData/NoPortalLevel.tres"
 next_scene = "res://test_grid_system.tscn"
 grid_data = SubResource("Resource_lvsnv")
 commands = Array[ExtResource("2_67my3")]([ExtResource("3_xm4x8"), ExtResource("3_xm4x8")])

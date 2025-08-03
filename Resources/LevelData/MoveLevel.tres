@@ -107,7 +107,8 @@ offset = Vector2(-96, -96)
 
 [resource]
 script = ExtResource("7_dx3ld")
-level_name = "Redirect"
+level_name = "Redirection"
+description = "Press J at the bottom to use a command! Look at the top to see incoming attacks!"
 next_level_data = "res://Resources/LevelData/PushyLevel.tres"
 next_scene = "res://test_grid_system.tscn"
 grid_data = SubResource("Resource_f4r3f")

@@ -152,6 +152,7 @@ offset = Vector2(-128, -160)
 [resource]
 script = ExtResource("3_rygnh")
 level_name = "Off the Edge"
+description = ""
 next_level_data = "res://Resources/LevelData/GotoLevel.tres"
 next_scene = "res://test_grid_system.tscn"
 grid_data = SubResource("Resource_smki8")

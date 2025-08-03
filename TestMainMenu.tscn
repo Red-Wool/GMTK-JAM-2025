@@ -1,0 +1,213 @@
+[gd_scene load_steps=17 format=3 uid="uid://cfv31uhjaou1k"]
+
+[ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_sblyb"]
+[ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_ig3mg"]
+[ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="6_sw686"]
+[ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="12_xw257"]
+[ext_resource type="Script" path="res://Continue.gd" id="13_01am0"]
+
+[sub_resource type="Theme" id="Theme_xyo1f"]
+
+[sub_resource type="Gradient" id="Gradient_m34px"]
+offsets = PackedFloat32Array(0, 0.543767, 1)
+colors = PackedColorArray(0.609042, 0.631878, 0.843819, 1, 1, 0.55015, 0.657335, 1, 1, 0.736633, 0.459665, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n08jg"]
+gradient = SubResource("Gradient_m34px")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nised"]
+texture = SubResource("GradientTexture1D_n08jg")
+modulate_color = Color(0.595809, 0.528208, 0.633506, 1)
+
+[sub_resource type="Animation" id="Animation_p2cof"]
+resource_name = "Blink"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_pi8yb"]
+resource_name = "Intro"
+length = 5.0
+step = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ke5ky"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pah7e"]
+_data = {
+"Blink": SubResource("Animation_p2cof"),
+"Intro": SubResource("Animation_pi8yb"),
+"RESET": SubResource("Animation_ke5ky")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8c26"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_lqjbd"]
+default_font = ExtResource("12_xw257")
+default_font_size = 28
+
+[sub_resource type="Theme" id="Theme_778gk"]
+default_font = ExtResource("12_xw257")
+default_font_size = 56
+
+[node name="DialogueScene" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Transition" parent="." instance=ExtResource("1_sblyb")]
+unique_name_in_owner = true
+position = Vector2(578, 343)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 657.0
+theme = SubResource("Theme_xyo1f")
+theme_override_styles/panel = SubResource("StyleBoxTexture_nised")
+
+[node name="MenuAnimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Chatbox")
+libraries = {
+"": SubResource("AnimationLibrary_pah7e")
+}
+autoplay = "Intro"
+next/Blink = &"Blink"
+
+[node name="FOR" type="TextureRect" parent="."]
+modulate = Color(0.190762, 0.190762, 0.190762, 1)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 87.0
+offset_right = 917.0
+offset_bottom = 1303.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ig3mg")
+
+[node name="WHILE" type="TextureRect" parent="."]
+modulate = Color(0.190762, 0.190762, 0.190762, 1)
+layout_mode = 0
+offset_left = 710.0
+offset_top = 96.0
+offset_right = 1584.0
+offset_bottom = 1312.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_sw686")
+
+[node name="Chatbox" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = 155.0
+offset_right = 326.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 200)
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8c26")
+
+[node name="Continue" type="Label" parent="Chatbox"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 595.0
+offset_bottom = 39.0
+theme = SubResource("Theme_lqjbd")
+text = "Incoming message... press SPACE to accept"
+horizontal_alignment = 1
+script = ExtResource("13_01am0")
+gotoscene = "res://TestDialogueScene.tscn"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 65.0
+offset_right = 597.0
+offset_bottom = 365.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_778gk")
+bbcode_enabled = true
+text = "[center]
+{STUCK}
+For a While"
+visible_characters = 0
+visible_ratio = 0.0
+
+[connection signal="animation_finished" from="MenuAnimator" to="Chatbox/Continue" method="_on_chatbox_finished_dialogue" unbinds=1]

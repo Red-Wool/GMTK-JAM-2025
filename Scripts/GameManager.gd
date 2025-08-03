@@ -34,6 +34,7 @@ var is_win : bool
 @onready var choose_dir_sprite : Texture2D = preload("res://Art/chooseDir.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	PortalManager._clear_portals()
 	await get_tree().create_timer(.1).timeout
 	level_data = load(save.saved_file)
 	_start_level()

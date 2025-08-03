@@ -8,5 +8,6 @@ object_table = {
 "PointerDown": "res://Prefab/ObjectPrefabs/pointer_grid_object_down.tscn",
 "PointerLeft": "res://Prefab/ObjectPrefabs/pointer_grid_object_left.tscn",
 "PointerRight": "res://Prefab/ObjectPrefabs/pointer_grid_object_right.tscn",
-"PointerUp": "res://Prefab/ObjectPrefabs/pointer_grid_object_up.tscn"
+"PointerUp": "res://Prefab/ObjectPrefabs/pointer_grid_object_up.tscn",
+"Portal": "res://Prefab/ObjectPrefabs/portal_grid_object.tscn"
 }

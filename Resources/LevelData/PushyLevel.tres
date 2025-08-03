@@ -54,7 +54,7 @@ grid_prefab_name = ""
 
 [sub_resource type="Resource" id="Resource_lpnmd"]
 script = ExtResource("5_ma0ac")
-grid_prefab_name = ""
+grid_prefab_name = "PointerUp"
 
 [sub_resource type="Resource" id="Resource_q6u3u"]
 script = ExtResource("5_ma0ac")
@@ -86,7 +86,7 @@ grid_prefab_name = ""
 
 [sub_resource type="Resource" id="Resource_u5rfy"]
 script = ExtResource("5_ma0ac")
-grid_prefab_name = "PointerUp"
+grid_prefab_name = ""
 
 [sub_resource type="Resource" id="Resource_4jweg"]
 script = ExtResource("5_ma0ac")
@@ -152,7 +152,7 @@ offset = Vector2(-128, -160)
 [resource]
 script = ExtResource("3_rygnh")
 level_name = "Off the Edge"
-next_level_data = "res://Resources/LevelData/PushyLevel.tres"
+next_level_data = "res://Resources/LevelData/GotoLevel.tres"
 next_scene = "res://test_grid_system.tscn"
 grid_data = SubResource("Resource_smki8")
 commands = Array[ExtResource("2_lfual")]([ExtResource("3_d16nh"), ExtResource("3_d16nh")])

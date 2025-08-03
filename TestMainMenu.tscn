@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfv31uhjaou1k"]
+[gd_scene load_steps=19 format=3 uid="uid://cfv31uhjaou1k"]
 
 [ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_sblyb"]
 [ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_ig3mg"]
@@ -122,7 +122,7 @@ default_font_size = 28
 default_font = ExtResource("12_xw257")
 default_font_size = 56
 
-[node name="DialogueScene" type="Control"]
+[node name="DialogueScene3" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

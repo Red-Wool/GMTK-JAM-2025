@@ -23,7 +23,7 @@ public partial class Chatbox : Panel
 
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionPressed("ui_accept"))
+		if (Input.IsActionJustPressed("ui_accept"))
 		{
 			timer.SetTimeLeft(0.01f);
 			doSkip = true;

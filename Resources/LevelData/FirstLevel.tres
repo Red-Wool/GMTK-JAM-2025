@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelResource" load_steps=21 format=3 uid="uid://bd4mqjlbhkhpl"]
+[gd_resource type="Resource" script_class="LevelResource" load_steps=21 format=3 uid="uid://by15bphfan1ib"]
 
 [ext_resource type="Script" path="res://Scripts/Attack/WhileAttackResource.gd" id="1_s46c5"]
 [ext_resource type="Script" path="res://Scripts/Commands/CommandResource.gd" id="2_377vc"]

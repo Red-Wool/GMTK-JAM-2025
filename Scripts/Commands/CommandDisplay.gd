@@ -2,7 +2,7 @@ class_name CommandDisplay extends Sprite2D
 
 
 @export var sprites : Array[Sprite2D]
-@onready var default_sprite = preload("res://Art/BasucBlock2.png")
+@onready var default_sprite = preload("res://Art/empty_ass_inventory_lmaopng.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,4 +20,4 @@ func _update_sprites(resource : Array[CommandResource]):
 		if i < resource.size() and resource[i] != null:
 			sprites[i].texture = resource[i].sprite
 		else:
-			sprites[i].texture = default_sprite
+			sprites[i].texture = null

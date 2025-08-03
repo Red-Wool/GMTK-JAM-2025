@@ -50,7 +50,7 @@ func _move_projectile(proj : AttackProjectile, pos : Vector2i, t : float = .5) -
 	
 	if !_outer_bounds(pos):
 		if pos.x <= -1:
-			game_manager.for_loop._hurt()
+			game_manager.for_loop._hurt(t)
 			_move_hit_character(proj, true, t)
 		else:
 			proj._disappear()

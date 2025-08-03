@@ -35,11 +35,15 @@ var stop : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sprite.material.set_shader_parameter("isOn", false)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if is_dead:
+		sprite.skew = (randf_range(-2,2))
 	
 	attack_timer -= delta
 	if is_attacking and attack_timer <= 0. and !stop:
@@ -48,8 +52,8 @@ func _process(delta):
 		
 		if infinite_loop_step_count <= current_step_count:
 			_infinite_state()
+			current_step_count = 0
 			stop = true
-			is_attacking = false
 		
 		var dead_check : bool = true
 		var speed_up : bool = false
@@ -120,7 +124,7 @@ func _preview(index : int):
 			preview.position = Vector2.ZERO
 		elif i == index:
 			preview.modulate.a = .5
-			preview.position = Vector2.RIGHT * 10
+			preview.position = Vector2.RIGHT * 30
 		else:
 			preview.modulate.a = 0.
 		
@@ -129,9 +133,16 @@ func _infinite_state():
 	for proj : AttackProjectile in attack_projectile_array:
 		if !proj.is_dead:
 			health -= 1
-			game_manager.grid_manager._move_hit_character(proj, false, .1)
-		
-		is_dead = health <= 0
+			game_manager.grid_manager._move_hit_character(proj, false, .2)
+			
+			await get_tree().create_timer(.2).timeout
+			
+			if health <= 0:
+				sprite.material.set_shader_parameter("isOn", true)
+				is_dead = true
+			
+			
+			await get_tree().create_timer(.3).timeout
 	_end_turn()
 
 func _end_turn():
@@ -146,6 +157,8 @@ func _end_turn():
 		if !p.is_paused:
 			p.queue_free()
 	attack_projectile_array.clear()
+	
+	await get_tree().create_timer(.5).timeout
 	
 	stop = false
 	is_attacking = false

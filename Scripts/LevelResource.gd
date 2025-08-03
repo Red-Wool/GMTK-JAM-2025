@@ -10,3 +10,10 @@ class_name LevelResource extends Resource
 @export var attack_data : Array[WhileAttackResource]
 
 #put more data later
+
+func _duplicate_commands() -> Array[CommandResource]:
+	var c : Array[CommandResource]
+	for command : CommandResource in commands:
+		c.append(command.duplicate(true))
+	
+	return c

@@ -1,7 +1,7 @@
 [gd_scene load_steps=65 format=3 uid="uid://cr0grbtgxqhma"]
 
 [ext_resource type="Script" path="res://Scripts/Dialogue/Chatbox.cs" id="1_ewlf7"]
-[ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_qxwwj"]
+[ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_qxwwj"]
 [ext_resource type="Script" path="res://Scripts/Dialogue/ChatMessageResource.cs" id="2_1y5ur"]
 [ext_resource type="Texture2D" uid="uid://uu0s2vupswm5" path="res://Art/Character/FOR_thinking.png" id="2_6qyok"]
 [ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="3_722l3"]
@@ -195,7 +195,7 @@ tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.46, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/7/type = "bezier"
@@ -206,7 +206,7 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.46, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -629,7 +629,7 @@ offset_left = 764.0
 offset_top = 155.0
 offset_right = 1638.0
 offset_bottom = 1371.0
-scale = Vector2(0.46, 0.46)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_ihwhp")
 
 [node name="Chatbox" type="Panel" parent="."]

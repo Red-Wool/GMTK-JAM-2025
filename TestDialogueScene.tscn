@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cr0grbtgxqhma"]
+[gd_scene load_steps=68 format=3 uid="uid://cr0grbtgxqhma"]
 
 [ext_resource type="Script" path="res://Scripts/Dialogue/Chatbox.cs" id="1_ewlf7"]
 [ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_qxwwj"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Dialogue/ChatEventAnimation.cs" id="6_wlfwk"]
 [ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="7_4ika4"]
 [ext_resource type="Script" path="res://Continue.gd" id="13_x5q6j"]
+[ext_resource type="AudioStream" uid="uid://bfphhdb6hosht" path="res://Art/SpotiDownloader.com - liftoff - Disuko.mp3" id="15_e4e6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jimu"]
 shader = ExtResource("2_qq8aw")
@@ -709,5 +710,10 @@ scale = Vector2(0.6, 0.6)
 theme = SubResource("Theme_lqjbd")
 text = "Press Space to continue"
 script = ExtResource("13_x5q6j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_e4e6m")
+volume_db = -6.555
+autoplay = true
 
 [connection signal="FinishedDialogue" from="Chatbox" to="Chatbox/Continue" method="_on_chatbox_finished_dialogue"]

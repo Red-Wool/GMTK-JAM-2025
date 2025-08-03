@@ -94,6 +94,7 @@ texture = ExtResource("26_nuagv")
 
 [node name="Transition" parent="." instance=ExtResource("1_8q5g0")]
 unique_name_in_owner = true
+z_index = 1000
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

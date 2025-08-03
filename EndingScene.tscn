@@ -1,0 +1,828 @@
+[gd_scene load_steps=71 format=3 uid="uid://bm086lb4ysh83"]
+
+[ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_5ex23"]
+[ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_6osnk"]
+[ext_resource type="Texture2D" uid="uid://db5i6kwbmsu8l" path="res://Art/Character/FOR_neutral.png" id="3_mgfsd"]
+[ext_resource type="Texture2D" uid="uid://uu0s2vupswm5" path="res://Art/Character/FOR_thinking.png" id="4_14nxj"]
+[ext_resource type="Texture2D" uid="uid://dvtado61umq4t" path="res://Art/Character/Unknown.png" id="5_c4uot"]
+[ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="6_3o4iv"]
+[ext_resource type="Texture2D" uid="uid://re6sp7henqtc" path="res://Art/Character/WHILE_neutral.png" id="7_tae5k"]
+[ext_resource type="Texture2D" uid="uid://dbx6rea7coh4l" path="res://Art/Character/WHILE_hurt.png" id="8_ikt4k"]
+[ext_resource type="Script" path="res://Scripts/Dialogue/Chatbox.cs" id="9_5eyls"]
+[ext_resource type="Texture2D" uid="uid://v2oqrabareib" path="res://Art/Character/WHILE_thinking.png" id="9_g7eoy"]
+[ext_resource type="Script" path="res://Scripts/Dialogue/ChatMessageResource.cs" id="10_vx3i1"]
+[ext_resource type="Texture2D" uid="uid://cylr4bhbfx43r" path="res://Art/Character/FOR_hurt.png" id="10_xwmeo"]
+[ext_resource type="Script" path="res://Scripts/Dialogue/ChatEventAnimation.cs" id="11_4v8y1"]
+[ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="12_8na6g"]
+[ext_resource type="Script" path="res://Continue.gd" id="13_1ar6e"]
+
+[sub_resource type="Theme" id="Theme_xyo1f"]
+
+[sub_resource type="Gradient" id="Gradient_g0odq"]
+offsets = PackedFloat32Array(0, 0.509284, 1)
+colors = PackedColorArray(0.861438, 0.567312, 0.451627, 1, 0.844969, 0.683186, 0.36787, 1, 0.560518, 0.893711, 0.530188, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nulvu"]
+gradient = SubResource("Gradient_g0odq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ido63"]
+texture = SubResource("GradientTexture1D_nulvu")
+modulate_color = Color(0.595809, 0.528208, 0.633506, 1)
+
+[sub_resource type="Animation" id="Animation_yunmb"]
+resource_name = "FOR-Happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_6osnk"), ExtResource("2_6osnk")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FOR:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.833333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FOR:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(163, -0.25, 0, 0.25, 0, 130, -0.25, 0, 0.25, 0, 163, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.833333)
+}
+
+[sub_resource type="Animation" id="Animation_7c0vy"]
+resource_name = "FOR-Neutral"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mgfsd")]
+}
+
+[sub_resource type="Animation" id="Animation_iky35"]
+resource_name = "FOR-Thinking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_14nxj")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FOR:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.533333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FOR:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(163, -0.25, 0, 0.25, 0, 117.785, -0.25, 0, 0.25, 0, 163, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.533333)
+}
+
+[sub_resource type="Animation" id="Animation_dn76e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_6osnk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WHILE:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_c4uot")]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FOR:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(16.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../FOR:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(163, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../WHILE:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(764, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../WHILE:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(155, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../WHILE:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../WHILE:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../WHILE:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.200713, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../FOR:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4hp2s"]
+resource_name = "WHILE-Happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WHILE:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_3o4iv")]
+}
+
+[sub_resource type="Animation" id="Animation_2j8aa"]
+resource_name = "WHILE-Neutral"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WHILE:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_tae5k")]
+}
+
+[sub_resource type="Animation" id="Animation_kk780"]
+resource_name = "WHILE-hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WHILE:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_ikt4k"), ExtResource("8_ikt4k")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WHILE:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.1309, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../WHILE:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(764, -0.25, 0, 0.25, 0, 700.665, -0.25, 0, 0.25, 0, 764, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../WHILE:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(155, -0.25, 0, 0.25, 0, 133.8, -0.25, 0, 0.25, 0, 155, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../WHILE:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.46, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../WHILE:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.46, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.833333)
+}
+
+[sub_resource type="Animation" id="Animation_4mqxv"]
+resource_name = "WHILE-Thinking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WHILE:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_g7eoy")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WHILE:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.200713, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.833333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../WHILE:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(764, -0.25, 0, 0.25, 0, 731.905, -0.25, 0, 0.25, 0, 764, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.833333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../WHILE:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(155, -0.25, 0, 0.25, 0, 219.295, -0.25, 0, 0.25, 0, 155, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.833333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../WHILE:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../WHILE:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.4, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333)
+}
+
+[sub_resource type="Animation" id="Animation_m5vls"]
+resource_name = "FOR-Hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../FOR:texture")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_xwmeo")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FOR:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(16.395, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.25, 0, 16.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.533333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../FOR:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(163, -0.25, 0, 0.25, 0, 117.785, -0.25, 0, 0.25, 0, 163, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.533333)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../FOR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.261799, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.533333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vr7gi"]
+_data = {
+"FOR-Happy": SubResource("Animation_yunmb"),
+"FOR-Hurt": SubResource("Animation_m5vls"),
+"FOR-Neutral": SubResource("Animation_7c0vy"),
+"FOR-Thinking": SubResource("Animation_iky35"),
+"RESET": SubResource("Animation_dn76e"),
+"WHILE-Happy": SubResource("Animation_4hp2s"),
+"WHILE-Neutral": SubResource("Animation_2j8aa"),
+"WHILE-Thinking": SubResource("Animation_4mqxv"),
+"WHILE-hurt": SubResource("Animation_kk780")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8c26"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Resource" id="Resource_a2mim"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Happy"
+
+[sub_resource type="Resource" id="Resource_72bx2"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-hurt"
+
+[sub_resource type="Resource" id="Resource_pqdxb"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: Dammit, For... "
+delayStart = 0.0
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_88rh0"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: I can't believe you won... again."
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_h4q74"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: Guess I really am useless after all. Well, whatever. "
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_27olm"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-Thinking"
+
+[sub_resource type="Resource" id="Resource_yyyyb"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: while... i never said u were useless"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_yitr6"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Neutral"
+
+[sub_resource type="Resource" id="Resource_61hmf"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: (You... kinda did.)"
+delayStart = 2.0
+delayType = 1.0
+
+[sub_resource type="Resource" id="Resource_orlbw"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-hurt"
+
+[sub_resource type="Resource" id="Resource_gu088"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: ok but I didn't MEAN it!"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_e876a"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Hurt"
+
+[sub_resource type="Resource" id="Resource_udv1l"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: ur still my friend. its a dam travesty programmers dont appreciate you"
+delayStart = 2.5
+delayType = 4.0
+
+[sub_resource type="Resource" id="Resource_h0v7m"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Happy"
+
+[sub_resource type="Resource" id="Resource_ijelb"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: (esp because i get twice as much work to do)"
+delayStart = 1.0
+delayType = 1.0
+
+[sub_resource type="Resource" id="Resource_moc6r"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Hurt"
+
+[sub_resource type="Resource" id="Resource_3uwtp"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: but u and me, we work better as a team. we always did"
+delayStart = 3.0
+delayType = 4.0
+
+[sub_resource type="Resource" id="Resource_2sxfq"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Neutral"
+
+[sub_resource type="Resource" id="Resource_jfwvd"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: For... you really think so?"
+delayStart = 3.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_n180n"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-Thinking"
+
+[sub_resource type="Resource" id="Resource_n77uw"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: yas gurl"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_nc7y7"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Happy"
+
+[sub_resource type="Resource" id="Resource_odbuu"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: I'm sorry for letting my jealousy get the best of me."
+delayStart = 4.0
+delayType = 5.0
+
+[sub_resource type="Resource" id="Resource_fqipa"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-Neutral"
+
+[sub_resource type="Resource" id="Resource_mg18g"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: its ok! so... we friends again?"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_0fm6v"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Neutral"
+
+[sub_resource type="Resource" id="Resource_3xepe"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: Yeah... friends."
+delayStart = 2.5
+delayType = 3.5
+
+[sub_resource type="Resource" id="Resource_ngdi8"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-Happy"
+
+[sub_resource type="Resource" id="Resource_oalfp"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: yippeee"
+delayStart = 1.0
+delayType = 1.0
+
+[sub_resource type="Resource" id="Resource_kwggu"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Happy"
+
+[sub_resource type="Resource" id="Resource_hovsu"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: Oh yeah... how's your friend Endless Switch Statement doing?"
+delayStart = 5.0
+delayType = 3.0
+
+[sub_resource type="Resource" id="Resource_phbi5"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-Neutral"
+
+[sub_resource type="Resource" id="Resource_lfdke"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: oh u know... singlehandedly holding up the entire indie games industry as usual"
+delayStart = 2.5
+delayType = 4.0
+
+[sub_resource type="Resource" id="Resource_buew6"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Neutral"
+
+[sub_resource type="Resource" id="Resource_1aam1"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: Poor girl. Anyway..."
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_j3vuy"]
+script = ExtResource("10_vx3i1")
+name = "WHILE"
+message = "WHILE: See you soon?"
+delayStart = 2.5
+delayType = 2.0
+
+[sub_resource type="Resource" id="Resource_e85ku"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"WHILE-Happy"
+
+[sub_resource type="Resource" id="Resource_td8ku"]
+script = ExtResource("10_vx3i1")
+name = "FOR"
+message = "FOR: l8r!!!"
+delayStart = 2.5
+delayType = 0.5
+
+[sub_resource type="Resource" id="Resource_rv12u"]
+script = ExtResource("11_4v8y1")
+AnimationPlayerPath = NodePath("../CharacterAnimator")
+animationName = &"FOR-Happy"
+
+[sub_resource type="Theme" id="Theme_lqjbd"]
+default_font = ExtResource("12_8na6g")
+default_font_size = 28
+
+[node name="DialogueScene" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Transition" parent="." instance=ExtResource("1_5ex23")]
+unique_name_in_owner = true
+position = Vector2(578, 343)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 657.0
+theme = SubResource("Theme_xyo1f")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ido63")
+
+[node name="CharacterAnimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Chatbox")
+libraries = {
+"": SubResource("AnimationLibrary_vr7gi")
+}
+
+[node name="FOR" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 16.395
+offset_top = 163.0
+offset_right = 890.395
+offset_bottom = 1379.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_6osnk")
+
+[node name="WHILE" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 763.999
+offset_top = 155.0
+offset_right = 1638.0
+offset_bottom = 1371.0
+rotation = -0.200713
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_c4uot")
+
+[node name="Chatbox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -196.0
+offset_right = 256.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 200)
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8c26")
+script = ExtResource("9_5eyls")
+chatMessages = Array[Object]([SubResource("Resource_a2mim"), SubResource("Resource_72bx2"), SubResource("Resource_pqdxb"), SubResource("Resource_88rh0"), SubResource("Resource_h4q74"), SubResource("Resource_27olm"), SubResource("Resource_yyyyb"), SubResource("Resource_yitr6"), SubResource("Resource_61hmf"), SubResource("Resource_orlbw"), SubResource("Resource_gu088"), SubResource("Resource_e876a"), SubResource("Resource_udv1l"), SubResource("Resource_h0v7m"), SubResource("Resource_ijelb"), SubResource("Resource_moc6r"), SubResource("Resource_3uwtp"), SubResource("Resource_2sxfq"), SubResource("Resource_jfwvd"), SubResource("Resource_n180n"), SubResource("Resource_n77uw"), SubResource("Resource_nc7y7"), SubResource("Resource_odbuu"), SubResource("Resource_fqipa"), SubResource("Resource_mg18g"), SubResource("Resource_0fm6v"), SubResource("Resource_3xepe"), SubResource("Resource_ngdi8"), SubResource("Resource_oalfp"), SubResource("Resource_kwggu"), SubResource("Resource_hovsu"), SubResource("Resource_phbi5"), SubResource("Resource_lfdke"), SubResource("Resource_buew6"), SubResource("Resource_1aam1"), SubResource("Resource_j3vuy"), SubResource("Resource_e85ku"), SubResource("Resource_td8ku"), SubResource("Resource_rv12u")])
+FORColor = Color(0.929102, 0.776327, 0.811101, 1)
+WHILEColor = Color(0.586862, 0.82933, 0.615846, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Chatbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 11.12)
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Chatbox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="Chatbox"]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 360.0
+offset_right = 251.0
+offset_bottom = 389.0
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_lqjbd")
+text = "Nobody is typing"
+
+[node name="Continue" type="Label" parent="Chatbox"]
+visible = false
+layout_mode = 0
+offset_left = 318.0
+offset_top = 386.0
+offset_right = 637.0
+offset_bottom = 415.0
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_lqjbd")
+text = "Press Space to continue"
+script = ExtResource("13_1ar6e")
+gotoscene = "res://TheEnd.tscn"
+
+[connection signal="FinishedDialogue" from="Chatbox" to="Chatbox/Continue" method="_on_chatbox_finished_dialogue"]

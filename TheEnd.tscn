@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2uu1rkwihrls"]
+
+[ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_civaa"]
+[ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_mgfst"]
+[ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="3_h4w0r"]
+[ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="4_igduq"]
+
+[sub_resource type="Theme" id="Theme_xyo1f"]
+
+[sub_resource type="Gradient" id="Gradient_m34px"]
+offsets = PackedFloat32Array(0, 0.543767, 1)
+colors = PackedColorArray(0.609042, 0.631878, 0.843819, 1, 1, 0.55015, 0.657335, 1, 1, 0.736633, 0.459665, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n08jg"]
+gradient = SubResource("Gradient_m34px")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nised"]
+texture = SubResource("GradientTexture1D_n08jg")
+modulate_color = Color(0.595809, 0.528208, 0.633506, 1)
+
+[sub_resource type="Theme" id="Theme_778gk"]
+default_font = ExtResource("4_igduq")
+default_font_size = 56
+
+[node name="DialogueScene" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Transition" parent="." instance=ExtResource("1_civaa")]
+unique_name_in_owner = true
+position = Vector2(578, 343)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 657.0
+theme = SubResource("Theme_xyo1f")
+theme_override_styles/panel = SubResource("StyleBoxTexture_nised")
+
+[node name="FOR" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 87.0
+offset_right = 917.0
+offset_bottom = 1303.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_mgfst")
+
+[node name="WHILE" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 710.0
+offset_top = 96.0
+offset_right = 1584.0
+offset_bottom = 1312.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_h4w0r")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 288.0
+offset_right = 574.0
+offset_bottom = 588.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_778gk")
+bbcode_enabled = true
+text = "[center][THE END]"

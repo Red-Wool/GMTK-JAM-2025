@@ -133,6 +133,8 @@ func _push_object(pos : Vector2i, dir : Vector2i):
 		var obj = _get_tile(v).grid_object
 		_death_object(obj,_grid_to_world_position(v+dir))
 	
+	if push_stack.size() <= 0:
+		return
 	for v : Vector2i in push_stack:
 		_get_tile(v).grid_object.grid_position = v+dir
 		_set_tile_item(v+dir,_get_tile(v).grid_object)

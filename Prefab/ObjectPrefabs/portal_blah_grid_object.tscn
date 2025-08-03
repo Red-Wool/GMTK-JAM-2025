@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0t84dwj7fd7a"]
+[gd_scene load_steps=7 format=3 uid="uid://bf5mnr1u3vw3w"]
 
-[ext_resource type="Script" path="res://Scripts/Grid/PointerGridObject.gd" id="1_iau2c"]
-[ext_resource type="Texture2D" uid="uid://b30p0vwhidrmt" path="res://Art/Arrow set.png" id="2_dw58w"]
+[ext_resource type="Script" path="res://Scripts/Grid/PortalGridObject.gd" id="1_ffw3w"]
+[ext_resource type="Texture2D" uid="uid://c038s15jd6sbx" path="res://Art/PortalSet.png" id="2_6830v"]
 
 [sub_resource type="Animation" id="Animation_uicgj"]
 length = 0.001
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 1]
+"values": [2, 5]
 }
 
 [sub_resource type="Animation" id="Animation_swt1l"]
@@ -48,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wm1ub"]
@@ -58,17 +58,15 @@ _data = {
 "idle": SubResource("Animation_swt1l")
 }
 
-[node name="PointerGridObjectUp" type="Node2D"]
+[node name="BlahPointerGridObjectUp" type="Node2D"]
 z_index = 1
-script = ExtResource("1_iau2c")
-direction = Vector2i(0, -1)
+script = ExtResource("1_ffw3w")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-rotation = -1.5708
-texture = ExtResource("2_dw58w")
+texture = ExtResource("2_6830v")
 hframes = 2
-vframes = 2
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

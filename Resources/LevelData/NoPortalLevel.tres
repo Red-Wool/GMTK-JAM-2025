@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=14 format=3 uid="uid://dmsq4u1wdwfo4"]
+
+[ext_resource type="Script" path="res://Scripts/Attack/WhileAttackResource.gd" id="1_im1w2"]
+[ext_resource type="Script" path="res://Scripts/Commands/CommandResource.gd" id="2_47ekn"]
+[ext_resource type="Resource" uid="uid://chaacpn2tro72" path="res://Resources/Commands/MoveCommand.tres" id="3_dnmaj"]
+[ext_resource type="Script" path="res://Scripts/LevelResource.gd" id="3_ln017"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="4_f8hke"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="5_reeq5"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="6_o7sbm"]
+
+[sub_resource type="Resource" id="Resource_nevuc"]
+script = ExtResource("4_f8hke")
+grid_column = Array[ExtResource("5_reeq5")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_lcfi1"]
+script = ExtResource("4_f8hke")
+grid_column = Array[ExtResource("5_reeq5")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_mus5b"]
+script = ExtResource("4_f8hke")
+grid_column = Array[ExtResource("5_reeq5")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_ivjn8"]
+script = ExtResource("4_f8hke")
+grid_column = Array[ExtResource("5_reeq5")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_ueeb6"]
+script = ExtResource("4_f8hke")
+grid_column = Array[ExtResource("5_reeq5")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_4k06w"]
+script = ExtResource("6_o7sbm")
+grid = Array[ExtResource("4_f8hke")]([SubResource("Resource_nevuc"), SubResource("Resource_lcfi1"), SubResource("Resource_mus5b"), SubResource("Resource_ivjn8"), SubResource("Resource_ueeb6")])
+offset = Vector2(-128, -128)
+
+[resource]
+script = ExtResource("3_ln017")
+level_name = "Circular Reasoning"
+next_level_data = ""
+next_scene = ""
+grid_data = SubResource("Resource_4k06w")
+commands = Array[ExtResource("2_47ekn")]([ExtResource("3_dnmaj"), ExtResource("3_dnmaj"), ExtResource("3_dnmaj")])
+while_loop_hp = 0
+attack_data = Array[ExtResource("1_im1w2")]([])

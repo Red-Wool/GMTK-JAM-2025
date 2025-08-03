@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_pyi0t")
 object_table = {
+"BlahPortal": "res://Prefab/ObjectPrefabs/portal_blah_grid_object.tscn",
 "PointerDown": "res://Prefab/ObjectPrefabs/pointer_grid_object_down.tscn",
 "PointerLeft": "res://Prefab/ObjectPrefabs/pointer_grid_object_left.tscn",
 "PointerRight": "res://Prefab/ObjectPrefabs/pointer_grid_object_right.tscn",

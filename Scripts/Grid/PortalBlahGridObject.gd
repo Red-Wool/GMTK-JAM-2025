@@ -1,4 +1,4 @@
-class_name PortalGridObject extends GridObject
+class_name PortalBlahGridObject extends GridObject
 
 @onready var anim : AnimationPlayer = $AnimationPlayer
 
@@ -7,7 +7,7 @@ func _ready():
 	pass
 
 func _action(proj : AttackProjectile, dir : Vector2i) -> bool:
-	var other_portal : PortalGridObject = PortalManager._find_portal(self)
+	var other_portal : PortalBlahGridObject = PortalManager._find_blah_portal(self)
 	if other_portal == null:
 		return false
 	

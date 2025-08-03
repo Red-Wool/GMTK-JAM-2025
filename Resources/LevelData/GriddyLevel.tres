@@ -1,0 +1,160 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=43 format=3 uid="uid://f2v4evrkyhia"]
+
+[ext_resource type="Script" path="res://Scripts/Attack/WhileAttackResource.gd" id="1_haau0"]
+[ext_resource type="Script" path="res://Scripts/Commands/CommandResource.gd" id="2_25pm5"]
+[ext_resource type="Resource" uid="uid://chaacpn2tro72" path="res://Resources/Commands/MoveCommand.tres" id="3_8hu7w"]
+[ext_resource type="Script" path="res://Scripts/LevelResource.gd" id="3_b0053"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="3_vj5na"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="4_t3jx7"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="5_ebyto"]
+
+[sub_resource type="Resource" id="Resource_3b1hl"]
+script = ExtResource("1_haau0")
+attack_lanes = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_qpj0m"]
+script = ExtResource("1_haau0")
+attack_lanes = Array[int]([0])
+
+[sub_resource type="Resource" id="Resource_h5bhh"]
+script = ExtResource("1_haau0")
+attack_lanes = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_cvj2t"]
+script = ExtResource("1_haau0")
+attack_lanes = Array[int]([1, 2, 3])
+
+[sub_resource type="Resource" id="Resource_tba4s"]
+script = ExtResource("1_haau0")
+attack_lanes = Array[int]([0, 1, 2, 3, 4])
+
+[sub_resource type="Resource" id="Resource_4t65s"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "BlahPortal"
+
+[sub_resource type="Resource" id="Resource_l7p5e"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_tvr7c"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_rbb5y"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "PointerUp"
+
+[sub_resource type="Resource" id="Resource_a0n7b"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "PointerRight"
+
+[sub_resource type="Resource" id="Resource_lxqhr"]
+script = ExtResource("3_vj5na")
+grid_column = Array[ExtResource("4_t3jx7")]([SubResource("Resource_4t65s"), SubResource("Resource_l7p5e"), SubResource("Resource_tvr7c"), SubResource("Resource_rbb5y"), SubResource("Resource_a0n7b")])
+
+[sub_resource type="Resource" id="Resource_b74q1"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_agm3d"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_37nbc"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_6viqv"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_utwcs"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "PointerUp"
+
+[sub_resource type="Resource" id="Resource_72abi"]
+script = ExtResource("3_vj5na")
+grid_column = Array[ExtResource("4_t3jx7")]([SubResource("Resource_b74q1"), SubResource("Resource_agm3d"), SubResource("Resource_37nbc"), SubResource("Resource_6viqv"), SubResource("Resource_utwcs")])
+
+[sub_resource type="Resource" id="Resource_htw3f"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_n2k3g"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_mfwp7"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_blqum"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_5y0u5"]
+script = ExtResource("3_vj5na")
+grid_column = Array[ExtResource("4_t3jx7")]([SubResource("Resource_htw3f"), SubResource("Resource_n2k3g"), null, SubResource("Resource_mfwp7"), SubResource("Resource_blqum")])
+
+[sub_resource type="Resource" id="Resource_4ho8b"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_4gxvg"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_1tta1"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_khxke"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_h1gye"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_doaby"]
+script = ExtResource("3_vj5na")
+grid_column = Array[ExtResource("4_t3jx7")]([SubResource("Resource_4ho8b"), SubResource("Resource_4gxvg"), SubResource("Resource_1tta1"), SubResource("Resource_khxke"), SubResource("Resource_h1gye")])
+
+[sub_resource type="Resource" id="Resource_7bkrw"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "PointerDown"
+
+[sub_resource type="Resource" id="Resource_tfrxm"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_ygnun"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_rp6na"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_qfukl"]
+script = ExtResource("4_t3jx7")
+grid_prefab_name = "BlahPortal"
+
+[sub_resource type="Resource" id="Resource_5823a"]
+script = ExtResource("3_vj5na")
+grid_column = Array[ExtResource("4_t3jx7")]([SubResource("Resource_7bkrw"), SubResource("Resource_tfrxm"), SubResource("Resource_ygnun"), SubResource("Resource_rp6na"), SubResource("Resource_qfukl")])
+
+[sub_resource type="Resource" id="Resource_1sop4"]
+script = ExtResource("5_ebyto")
+grid = Array[ExtResource("3_vj5na")]([SubResource("Resource_lxqhr"), SubResource("Resource_72abi"), SubResource("Resource_5y0u5"), SubResource("Resource_doaby"), SubResource("Resource_5823a")])
+offset = Vector2(-128, -128)
+
+[resource]
+script = ExtResource("3_b0053")
+level_name = "Circular Reasoning"
+next_level_data = ""
+next_scene = "res://test_grid_system.tscn"
+grid_data = SubResource("Resource_1sop4")
+commands = Array[ExtResource("2_25pm5")]([ExtResource("3_8hu7w"), ExtResource("3_8hu7w"), ExtResource("3_8hu7w"), ExtResource("3_8hu7w")])
+while_loop_hp = 4
+attack_data = Array[ExtResource("1_haau0")]([SubResource("Resource_3b1hl"), SubResource("Resource_qpj0m"), SubResource("Resource_h5bhh"), SubResource("Resource_cvj2t"), SubResource("Resource_tba4s")])

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd0o2dhjictwe"]
 
 [ext_resource type="Script" path="res://Scripts/Grid/PortalGridObject.gd" id="1_c45v0"]
-[ext_resource type="Texture2D" uid="uid://b30p0vwhidrmt" path="res://Art/Arrow set.png" id="2_1kvrx"]
+[ext_resource type="Texture2D" uid="uid://c038s15jd6sbx" path="res://Art/PortalSet.png" id="2_xha5p"]
 
 [sub_resource type="Animation" id="Animation_uicgj"]
 length = 0.001
@@ -64,10 +64,9 @@ script = ExtResource("1_c45v0")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-rotation = -1.5708
-texture = ExtResource("2_1kvrx")
+texture = ExtResource("2_xha5p")
 hframes = 2
-vframes = 2
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

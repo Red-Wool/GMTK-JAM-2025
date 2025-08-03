@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfv31uhjaou1k"]
+[gd_scene load_steps=17 format=3 uid="uid://ufutmaqt5auc"]
 
-[ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_sblyb"]
+[ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_sblyb"]
 [ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_ig3mg"]
 [ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="6_sw686"]
 [ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="12_xw257"]
@@ -211,6 +211,7 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Continue" type="Label" parent="."]
+layout_mode = 0
 offset_left = 27.0
 offset_top = 543.0
 offset_right = 1145.0

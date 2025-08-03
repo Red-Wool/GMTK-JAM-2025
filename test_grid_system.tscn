@@ -1,13 +1,13 @@
 [gd_scene load_steps=39 format=3 uid="uid://5xki7cjncade"]
 
-[ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_8q5g0"]
+[ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_8q5g0"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridManager.gd" id="1_xx8qn"]
 [ext_resource type="Script" path="res://Scripts/Commands/ForLoop.gd" id="2_wg84c"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="3_ipsnc"]
 [ext_resource type="PackedScene" uid="uid://dy7xs2oi243vd" path="res://Prefab/grid_tile.tscn" id="3_y32g5"]
-[ext_resource type="Resource" uid="uid://pq0472fycuw7" path="res://Resources/Save.tres" id="4_4d2hy"]
-[ext_resource type="Resource" uid="uid://bd4mqjlbhkhpl" path="res://Resources/LevelData/FirstLevel.tres" id="4_5hjjy"]
+[ext_resource type="Resource" path="res://Resources/Save.tres" id="4_4d2hy"]
+[ext_resource type="Resource" uid="uid://by15bphfan1ib" path="res://Resources/LevelData/FirstLevel.tres" id="4_5hjjy"]
 [ext_resource type="Texture2D" uid="uid://db5i6kwbmsu8l" path="res://Art/Character/FOR_neutral.png" id="4_rkrjk"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="4_xk82o"]
 [ext_resource type="Texture2D" uid="uid://b8yrfsx2i5r4d" path="res://Art/crossHair.png" id="5_awbc7"]
@@ -33,11 +33,14 @@ shader_parameter/isOn = false
 shader_parameter/blueScreenTexture = ExtResource("7_bm7yt")
 
 [sub_resource type="Gradient" id="Gradient_c1wkv"]
+offsets = PackedFloat32Array(0, 0.124694, 0.462103, 0.804401, 1)
+colors = PackedColorArray(0.76285, 0.566762, 0.535715, 1, 1, 1, 1, 1, 0.653483, 0.385796, 0.41258, 1, 0.470723, 0.338825, 0.646715, 1, 0.138425, 0.182303, 0.397479, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0nyfx"]
 gradient = SubResource("Gradient_c1wkv")
 width = 1536
 height = 160
+fill_to = Vector2(1, 0.40592)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bjsgu"]
 shader = ExtResource("6_ockrj")
@@ -78,6 +81,13 @@ grid = Array[ExtResource("3_ipsnc")]([SubResource("Resource_nms2n"), SubResource
 offset = Vector2(0, 0)
 
 [node name="TestGridSystem" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+modulate = Color(0.219501, 0.219501, 0.219501, 1)
+z_index = -100
+texture_filter = 1
+position = Vector2(1, -65)
+texture = ExtResource("26_nuagv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -351,10 +361,3 @@ visible = false
 
 [node name="AttackPreview" parent="." instance=ExtResource("11_6c2l6")]
 visible = false
-
-[node name="BG" type="Sprite2D" parent="."]
-modulate = Color(0.219501, 0.219501, 0.219501, 1)
-z_index = -100
-texture_filter = 1
-position = Vector2(1, -65)
-texture = ExtResource("26_nuagv")

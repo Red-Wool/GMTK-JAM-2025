@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="LevelResource" load_steps=27 format=3 uid="uid://cjrpr2ntqnd7s"]
+[gd_resource type="Resource" script_class="LevelResource" load_steps=28 format=3 uid="uid://cjrpr2ntqnd7s"]
 
 [ext_resource type="Script" path="res://Scripts/Attack/WhileAttackResource.gd" id="1_sjr45"]
 [ext_resource type="Script" path="res://Scripts/Commands/CommandResource.gd" id="2_5jkoc"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="3_juqtb"]
+[ext_resource type="Resource" uid="uid://chaacpn2tro72" path="res://Resources/Commands/MoveCommand.tres" id="3_lti03"]
 [ext_resource type="Script" path="res://Scripts/LevelResource.gd" id="3_x8ydi"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="4_7dknx"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="4_gnakg"]
@@ -92,6 +93,6 @@ offset = Vector2(-96, -64)
 script = ExtResource("3_x8ydi")
 level_name = "For a While"
 grid_data = SubResource("Resource_f4r3f")
-commands = Array[ExtResource("2_5jkoc")]([])
+commands = Array[ExtResource("2_5jkoc")]([ExtResource("3_lti03")])
 while_loop_hp = 2
 attack_data = Array[ExtResource("1_sjr45")]([SubResource("Resource_mf44d"), SubResource("Resource_cwhj4"), SubResource("Resource_6ip6e")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5xki7cjncade"]
+[gd_scene load_steps=34 format=3 uid="uid://5xki7cjncade"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridManager.gd" id="1_xx8qn"]
@@ -11,14 +11,21 @@
 [ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="4_xk82o"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="5_y37kf"]
 [ext_resource type="Script" path="res://Scripts/Commands/CommandDisplay.gd" id="6_65egh"]
-[ext_resource type="Texture2D" uid="uid://re6sp7henqtc" path="res://Art/Character/WHILE_neutral.png" id="6_evxij"]
+[ext_resource type="Shader" path="res://Scripts/BlueScreen.gdshader" id="6_ockrj"]
 [ext_resource type="Texture2D" uid="uid://dun7nko3vs7l" path="res://Art/BasucBlock2.png" id="6_sb7e5"]
+[ext_resource type="Texture2D" uid="uid://cr7wwiom7qwi0" path="res://Art/bluescreen.png" id="7_bm7yt"]
 [ext_resource type="Script" path="res://Scripts/Attack/WhileLoop.gd" id="9_kwq8n"]
 [ext_resource type="PackedScene" uid="uid://dbw3rxrj4j1ny" path="res://Prefab/attack_projectile.tscn" id="10_4itp5"]
 [ext_resource type="Script" path="res://Scripts/Attack/AttackDisplay.gd" id="10_tmfi4"]
 [ext_resource type="PackedScene" uid="uid://bcdkdfn2vmlc3" path="res://Prefab/attack_preview.tscn" id="11_6c2l6"]
 [ext_resource type="Texture2D" uid="uid://f1o68m5rt3xq" path="res://Art/BasicAngryPixelBlocks.png" id="11_beffb"]
+[ext_resource type="Texture2D" uid="uid://dbx6rea7coh4l" path="res://Art/Character/WHILE_hurt.png" id="11_gpo71"]
 [ext_resource type="Texture2D" uid="uid://c84nrsu2u5aeh" path="res://Art/GMTKTempAssets.png" id="12_htkqw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiwl1"]
+shader = ExtResource("6_ockrj")
+shader_parameter/isOn = false
+shader_parameter/blueScreenTexture = ExtResource("7_bm7yt")
 
 [sub_resource type="Gradient" id="Gradient_c1wkv"]
 
@@ -26,6 +33,11 @@
 gradient = SubResource("Gradient_c1wkv")
 width = 1536
 height = 160
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bjsgu"]
+shader = ExtResource("6_ockrj")
+shader_parameter/isOn = false
+shader_parameter/blueScreenTexture = ExtResource("7_bm7yt")
 
 [sub_resource type="Resource" id="Resource_3ddtt"]
 script = ExtResource("4_xk82o")
@@ -83,12 +95,18 @@ texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("3_67dwg")
 
+[node name="Preview" type="Sprite2D" parent="GameManager"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("6_sb7e5")
+
 [node name="ForLoop" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_wg84c")
 
 [node name="CharacterSprite" type="Sprite2D" parent="ForLoop"]
 z_index = 1
+material = SubResource("ShaderMaterial_xiwl1")
 position = Vector2(-400, 0)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_rkrjk")
@@ -147,9 +165,10 @@ unique_name_in_owner = true
 script = ExtResource("9_kwq8n")
 
 [node name="CharacterSprite" type="Sprite2D" parent="WhileLoop"]
+material = SubResource("ShaderMaterial_bjsgu")
 position = Vector2(400, 0)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_evxij")
+texture = ExtResource("11_gpo71")
 
 [node name="AttackDisplay" type="Sprite2D" parent="WhileLoop" node_paths=PackedStringArray("sprites")]
 z_index = -1

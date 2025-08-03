@@ -100,7 +100,7 @@ func _set_tile_item(pos : Vector2i, obj : GridObject):
 	grid.grid[pos.x].grid_column[pos.y].grid_tile.grid_object = obj
 
 func _push_object(pos : Vector2i, dir : Vector2i):
-	
+	print("trigger")
 	if dir == Vector2i.ZERO:
 		return
 	
@@ -116,6 +116,7 @@ func _push_object(pos : Vector2i, dir : Vector2i):
 			off_screen_flag = false
 			break
 	
+	print(push_stack)
 	push_stack.reverse()
 	
 	if off_screen_flag:
@@ -125,11 +126,12 @@ func _push_object(pos : Vector2i, dir : Vector2i):
 	
 	for v : Vector2i in push_stack:
 		_set_tile_item(v+dir,_get_tile(v).grid_object)
+		_move_object(_get_tile(v).grid_object, _grid_to_world_position(v+dir))
 	_set_tile_item(push_stack[push_stack.size()-1], null)
 
 func _move_object(obj : Node2D, pos : Vector2, t : float = .5):
 	get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)\
-		.tween_property(obj, "position", pos, t)
+		.tween_property(obj, "global_position", pos, t)
 
 func _death_object(obj : Node2D, pos : Vector2):
 	_move_object(obj,_grid_to_world_position(pos))

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MoveCommand" load_steps=3 format=3 uid="uid://chaacpn2tro72"]
+
+[ext_resource type="Script" path="res://Scripts/Commands/MoveCommand.gd" id="1_2a5f4"]
+[ext_resource type="Texture2D" uid="uid://bre2ej7g8mg8y" path="res://Art/GMTKTempAssetsomni.png" id="2_b7qcl"]
+
+[resource]
+script = ExtResource("1_2a5f4")
+command_name = "Move"
+can_choose_direction = true
+sprite = ExtResource("2_b7qcl")

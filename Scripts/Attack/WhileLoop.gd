@@ -55,7 +55,7 @@ func _process(delta):
 		var speed_up : bool = false
 		for proj : AttackProjectile in attack_projectile_array:
 			if !speed_up and proj.special_trigger:
-				attack_step_time *= .95
+				attack_step_time *= .9
 				speed_up = true
 			
 			if !proj.is_dead:
@@ -64,6 +64,7 @@ func _process(delta):
 		attack_timer = attack_step_time
 		
 		if dead_check:
+			stop = true
 			_end_turn()
 	
 	pass
@@ -134,18 +135,19 @@ func _infinite_state():
 	_end_turn()
 
 func _end_turn():
-	game_manager._end_turn()
-	
 	
 	await get_tree().create_timer(1.).timeout
 	
+	game_manager._end_turn()
 	_update_display()
+	_preview(attack_index)
 	
 	for p in attack_projectile_array:
 		if !p.is_paused:
 			p.queue_free()
 	attack_projectile_array.clear()
 	
+	stop = false
 	is_attacking = false
 
 func _update_display():

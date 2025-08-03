@@ -20,6 +20,18 @@ func _process(delta):
 
 func _setup(c : Array[CommandResource]):
 	commands = c
+	_display()
+
+func _try_select(index : int) -> bool:
+	if index >= commands.size():
+		return false
+	return true
+
+func _use_command(index : int):
+	
 
 func _hurt():
-	pass
+	commands.
+
+func _display():
+	command_display._update_sprites(commands)

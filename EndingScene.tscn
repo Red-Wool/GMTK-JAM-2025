@@ -661,8 +661,8 @@ animationName = &"FOR-Happy"
 script = ExtResource("10_vx3i1")
 name = "WHILE"
 message = "WHILE: Oh yeah... how's your friend Endless Switch Statement doing?"
-delayStart = 4.0
-delayType = 1.0
+delayStart = 5.0
+delayType = 3.0
 
 [sub_resource type="Resource" id="Resource_phbi5"]
 script = ExtResource("11_4v8y1")
@@ -674,7 +674,7 @@ script = ExtResource("10_vx3i1")
 name = "FOR"
 message = "FOR: oh u know... singlehandedly holding up the entire indie games industry as usual"
 delayStart = 2.5
-delayType = 2.0
+delayType = 4.0
 
 [sub_resource type="Resource" id="Resource_buew6"]
 script = ExtResource("11_4v8y1")

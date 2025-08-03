@@ -1,10 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://ufutmaqt5auc"]
+[gd_scene load_steps=19 format=3 uid="uid://ufutmaqt5auc"]
 
 [ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_sblyb"]
 [ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_ig3mg"]
+[ext_resource type="Shader" path="res://Scripts/Warp.gdshader" id="2_kxcm7"]
 [ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="6_sw686"]
 [ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="12_xw257"]
 [ext_resource type="Script" path="res://Continue.gd" id="13_01am0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vj2q7"]
+shader = ExtResource("2_kxcm7")
 
 [sub_resource type="Theme" id="Theme_xyo1f"]
 
@@ -132,6 +136,7 @@ unique_name_in_owner = true
 position = Vector2(578, 343)
 
 [node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_vj2q7")
 layout_mode = 0
 offset_right = 1158.0
 offset_bottom = 657.0
@@ -203,6 +208,9 @@ offset_right = 597.0
 offset_bottom = 290.0
 scale = Vector2(2, 2)
 theme = SubResource("Theme_778gk")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 bbcode_enabled = true
 text = "[center]
 {STUCK}
@@ -217,6 +225,9 @@ offset_top = 543.0
 offset_right = 1145.0
 offset_bottom = 700.0
 theme = SubResource("Theme_lqjbd")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
 text = "Programming and Design: Leo Lui 	                    Pixel Art: Mohammed Abedin
 Character Design: Ellie Hui                  Cutscene Programming: Rin Shinozaki
 BGM: Angelo \"Disuko\" Licavoli"

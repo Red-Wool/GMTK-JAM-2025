@@ -1,9 +1,10 @@
-[gd_scene load_steps=65 format=3 uid="uid://cr0grbtgxqhma"]
+[gd_scene load_steps=67 format=3 uid="uid://cr0grbtgxqhma"]
 
 [ext_resource type="Script" path="res://Scripts/Dialogue/Chatbox.cs" id="1_ewlf7"]
 [ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_qxwwj"]
 [ext_resource type="Script" path="res://Scripts/Dialogue/ChatMessageResource.cs" id="2_1y5ur"]
 [ext_resource type="Texture2D" uid="uid://uu0s2vupswm5" path="res://Art/Character/FOR_thinking.png" id="2_6qyok"]
+[ext_resource type="Shader" path="res://Scripts/Warp.gdshader" id="2_qq8aw"]
 [ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="3_722l3"]
 [ext_resource type="Texture2D" uid="uid://dvtado61umq4t" path="res://Art/Character/Unknown.png" id="3_ihwhp"]
 [ext_resource type="Texture2D" uid="uid://db5i6kwbmsu8l" path="res://Art/Character/FOR_neutral.png" id="4_0r40l"]
@@ -13,6 +14,9 @@
 [ext_resource type="Script" path="res://Scripts/Dialogue/ChatEventAnimation.cs" id="6_wlfwk"]
 [ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="7_4ika4"]
 [ext_resource type="Script" path="res://Continue.gd" id="13_x5q6j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jimu"]
+shader = ExtResource("2_qq8aw")
 
 [sub_resource type="Theme" id="Theme_xyo1f"]
 
@@ -602,6 +606,7 @@ unique_name_in_owner = true
 position = Vector2(578, 343)
 
 [node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_1jimu")
 layout_mode = 0
 offset_right = 1158.0
 offset_bottom = 657.0

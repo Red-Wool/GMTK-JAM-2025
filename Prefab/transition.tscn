@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://bc33k4c50dp2g"]
+
+[ext_resource type="Shader" path="res://Scripts/vortex.gdshader" id="1_tt60h"]
+[ext_resource type="Script" path="res://Scripts/Restart.gd" id="2_1yp3u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oslx0"]
+shader = ExtResource("1_tt60h")
+shader_parameter/anim = 1.0
+shader_parameter/bgColor = null
+shader_parameter/shineColor = null
+shader_parameter/posterizeAmount = 1
+shader_parameter/time = null
+
+[sub_resource type="Gradient" id="Gradient_hhspd"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_brbr2"]
+gradient = SubResource("Gradient_hhspd")
+width = 1200
+height = 1200
+
+[sub_resource type="Animation" id="Animation_gw8oo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jno5t"]
+resource_name = "closing"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/anim")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.133333, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fk3fd"]
+resource_name = "opening"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/anim")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7hds"]
+_data = {
+"RESET": SubResource("Animation_gw8oo"),
+"closing": SubResource("Animation_jno5t"),
+"opening": SubResource("Animation_fk3fd")
+}
+
+[node name="Transition" type="Sprite2D"]
+z_index = 100
+material = SubResource("ShaderMaterial_oslx0")
+texture = SubResource("GradientTexture2D_brbr2")
+script = ExtResource("2_1yp3u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e7hds")
+}
+autoplay = "opening"

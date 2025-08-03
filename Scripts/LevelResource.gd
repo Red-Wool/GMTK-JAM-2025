@@ -2,6 +2,9 @@ class_name LevelResource extends Resource
 
 @export var level_name : String
 
+@export var next_level_data : String
+@export var next_scene : String
+
 @export var grid_data : GridLevelResource
 
 @export var commands : Array[CommandResource]

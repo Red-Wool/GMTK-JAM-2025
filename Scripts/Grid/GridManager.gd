@@ -111,6 +111,8 @@ func _push_object(pos : Vector2i, dir : Vector2i):
 		push_stack.append(pos)
 		pos += dir
 		
+		if !_outer_bounds(pos):
+			break
 		var grid_tile : GridTile = _get_tile(pos)
 		if grid_tile != null and grid_tile.grid_object == null: 
 			off_screen_flag = false

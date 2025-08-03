@@ -135,7 +135,7 @@ func _infinite_state():
 			health -= 1
 			game_manager.grid_manager._move_hit_character(proj, false, .2)
 			
-			await get_tree().create_timer(.2).timeout
+			await get_tree().create_timer(.4).timeout
 			
 			if health <= 0:
 				sprite.material.set_shader_parameter("isOn", true)
@@ -143,6 +143,7 @@ func _infinite_state():
 			
 			
 			await get_tree().create_timer(.3).timeout
+	
 	_end_turn()
 
 func _end_turn():

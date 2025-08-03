@@ -14,12 +14,20 @@ var selected_index : int
 
 var initiate_start : bool
 var is_gameover : bool
+var is_win : bool
+@export var save : Save
+@export var next_level : String
 
 @onready var for_loop : ForLoop = %ForLoop
 @onready var while_loop : WhileLoop = %WhileLoop
 @onready var grid_manager : GridManager = %GridManager
+@onready var restart : Restart = %Transition
 
-@onready var test_label : Label = $TestLabel
+@onready var for_label : Label = $ForLabel
+@onready var test_label : Label = $WhileLabel
+@onready var title_label : Label = $TitleLabel
+@onready var display_label : Label = $DisplayLabel
+
 @onready var aim_reticle : Sprite2D = $Reticle
 @onready var aim_reticle_preview : Sprite2D = $Preview
 
@@ -27,6 +35,7 @@ var is_gameover : bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await get_tree().create_timer(.1).timeout
+	level_data = load(save.saved_file)
 	_start_level()
 	pass # Replace with function body.
 
@@ -108,7 +117,7 @@ func _process(delta):
 		aim_reticle_preview.modulate.a = 0.
 		aim_reticle.modulate.a = 1.
 	
-	test_label.text = str(while_loop.health)
+	test_label.text = "While\nHP " + str(while_loop.health)
 	if Input.is_action_just_pressed("action") and !while_loop.is_attacking and !initiate_start:
 		if !is_placing and for_loop._try_select(aim_position.x) and aim_box == 1:
 			selected_command = for_loop.commands[aim_position.x]
@@ -130,11 +139,18 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE) and !while_loop.is_attacking and !is_placing and !initiate_start:
 		initiate_start = true
 		_start_turn()
+	if Input.is_key_pressed(KEY_SPACE) and is_win:
+		save.saved_file = level_data.next_level_data
+		restart._gottoscene(level_data.next_scene)
 
 func _start_level():
+	
 	grid_manager._create_level(level_data.grid_data)
 	for_loop._setup(level_data._duplicate_commands())
 	while_loop._setup(level_data.while_loop_hp, level_data.attack_data)
+	title_label.text = level_data.level_name
+	await get_tree().create_timer(2.).timeout
+	create_tween().tween_property(title_label, "modulate:a", 0, 1.)
 
 func _end_place_item():
 	if initiate_start:
@@ -167,9 +183,14 @@ func _end_turn():
 func lose_level():
 	is_gameover = true
 	print("lose")
+	display_label.text = "You Lose... Press R to Restart"
+	for_loop.sprite.texture = load("res://Art/Character/WHILE_happy.png")
 	pass
 
 func win_level():
 	is_gameover = true
+	is_win = true
 	print("win")
+	display_label.text = "You Win! Press Space to Continue"
+	for_loop.sprite.texture = load("res://Art/Character/FOR_happy.png")
 	pass

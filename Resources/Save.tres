@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Save" load_steps=2 format=3 uid="uid://pq0472fycuw7"]
+
+[ext_resource type="Script" path="res://Scripts/Save.gd" id="1_1p4dw"]
+
+[resource]
+script = ExtResource("1_1p4dw")
+saved_file = "res://Resources/LevelData/PushyLevel.tres"

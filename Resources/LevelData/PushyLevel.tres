@@ -1,0 +1,160 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=43 format=3 uid="uid://8fi6mrjl4ytr"]
+
+[ext_resource type="Script" path="res://Scripts/Attack/WhileAttackResource.gd" id="1_e71oc"]
+[ext_resource type="Script" path="res://Scripts/Commands/CommandResource.gd" id="2_lfual"]
+[ext_resource type="Resource" uid="uid://chaacpn2tro72" path="res://Resources/Commands/MoveCommand.tres" id="3_d16nh"]
+[ext_resource type="Script" path="res://Scripts/LevelResource.gd" id="3_rygnh"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="4_vsdku"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="5_ma0ac"]
+[ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="6_t0p4w"]
+
+[sub_resource type="Resource" id="Resource_qutp1"]
+script = ExtResource("1_e71oc")
+attack_lanes = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_eut4g"]
+script = ExtResource("1_e71oc")
+attack_lanes = Array[int]([1, 2, 3])
+
+[sub_resource type="Resource" id="Resource_dtexo"]
+script = ExtResource("1_e71oc")
+attack_lanes = Array[int]([0, 5])
+
+[sub_resource type="Resource" id="Resource_e7vkn"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_k7g60"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_2cl66"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_3ir8s"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_ijjvi"]
+script = ExtResource("4_vsdku")
+grid_column = Array[ExtResource("5_ma0ac")]([null, SubResource("Resource_e7vkn"), SubResource("Resource_k7g60"), SubResource("Resource_2cl66"), SubResource("Resource_3ir8s"), null])
+
+[sub_resource type="Resource" id="Resource_ba8lb"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_kvk3g"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerDown"
+
+[sub_resource type="Resource" id="Resource_5fmql"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_lpnmd"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_q6u3u"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_5kuse"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_il07y"]
+script = ExtResource("4_vsdku")
+grid_column = Array[ExtResource("5_ma0ac")]([SubResource("Resource_ba8lb"), SubResource("Resource_kvk3g"), SubResource("Resource_5fmql"), SubResource("Resource_lpnmd"), SubResource("Resource_q6u3u"), SubResource("Resource_5kuse")])
+
+[sub_resource type="Resource" id="Resource_fy630"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_uhf8v"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_uriij"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_n1gdf"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_u5rfy"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerUp"
+
+[sub_resource type="Resource" id="Resource_4jweg"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_ymfh5"]
+script = ExtResource("4_vsdku")
+grid_column = Array[ExtResource("5_ma0ac")]([SubResource("Resource_fy630"), SubResource("Resource_uhf8v"), SubResource("Resource_uriij"), SubResource("Resource_n1gdf"), SubResource("Resource_u5rfy"), SubResource("Resource_4jweg")])
+
+[sub_resource type="Resource" id="Resource_vsy65"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_0yuns"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_ymtae"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerDown"
+
+[sub_resource type="Resource" id="Resource_wlbjt"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerDown"
+
+[sub_resource type="Resource" id="Resource_wiqn5"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_66ytb"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = "PointerLeft"
+
+[sub_resource type="Resource" id="Resource_ci7a3"]
+script = ExtResource("4_vsdku")
+grid_column = Array[ExtResource("5_ma0ac")]([SubResource("Resource_vsy65"), SubResource("Resource_0yuns"), SubResource("Resource_ymtae"), SubResource("Resource_wlbjt"), SubResource("Resource_wiqn5"), SubResource("Resource_66ytb")])
+
+[sub_resource type="Resource" id="Resource_e8htx"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_ljffp"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_ypxgg"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_7nd63"]
+script = ExtResource("5_ma0ac")
+grid_prefab_name = ""
+
+[sub_resource type="Resource" id="Resource_4pryp"]
+script = ExtResource("4_vsdku")
+grid_column = Array[ExtResource("5_ma0ac")]([null, SubResource("Resource_e8htx"), SubResource("Resource_ljffp"), SubResource("Resource_ypxgg"), SubResource("Resource_7nd63"), null])
+
+[sub_resource type="Resource" id="Resource_smki8"]
+script = ExtResource("6_t0p4w")
+grid = Array[ExtResource("4_vsdku")]([SubResource("Resource_ijjvi"), SubResource("Resource_il07y"), SubResource("Resource_ymfh5"), SubResource("Resource_ci7a3"), SubResource("Resource_4pryp")])
+offset = Vector2(-128, -160)
+
+[resource]
+script = ExtResource("3_rygnh")
+level_name = "Off the Edge"
+next_level_data = "res://Resources/LevelData/PushyLevel.tres"
+next_scene = "res://test_grid_system.tscn"
+grid_data = SubResource("Resource_smki8")
+commands = Array[ExtResource("2_lfual")]([ExtResource("3_d16nh"), ExtResource("3_d16nh")])
+while_loop_hp = 3
+attack_data = Array[ExtResource("1_e71oc")]([SubResource("Resource_qutp1"), SubResource("Resource_eut4g"), SubResource("Resource_dtexo")])

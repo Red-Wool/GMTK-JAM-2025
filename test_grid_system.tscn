@@ -1,16 +1,17 @@
-[gd_scene load_steps=44 format=3 uid="uid://5xki7cjncade"]
+[gd_scene load_steps=38 format=3 uid="uid://5xki7cjncade"]
 
+[ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_8q5g0"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_dkclg"]
-[ext_resource type="Shader" path="res://Scripts/vortex.gdshader" id="1_o8arl"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridManager.gd" id="1_xx8qn"]
-[ext_resource type="Resource" uid="uid://cjrpr2ntqnd7s" path="res://Resources/LevelData/TestLevel.tres" id="2_i006t"]
-[ext_resource type="Script" path="res://Scripts/Restart.gd" id="2_ikpb4"]
 [ext_resource type="Script" path="res://Scripts/Commands/ForLoop.gd" id="2_wg84c"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridColumnResource.gd" id="3_ipsnc"]
 [ext_resource type="PackedScene" uid="uid://dy7xs2oi243vd" path="res://Prefab/grid_tile.tscn" id="3_y32g5"]
+[ext_resource type="Resource" uid="uid://pq0472fycuw7" path="res://Resources/Save.tres" id="4_4d2hy"]
+[ext_resource type="Resource" uid="uid://bd4mqjlbhkhpl" path="res://Resources/LevelData/FirstLevel.tres" id="4_5hjjy"]
 [ext_resource type="Texture2D" uid="uid://db5i6kwbmsu8l" path="res://Art/Character/FOR_neutral.png" id="4_rkrjk"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridPointResource.gd" id="4_xk82o"]
 [ext_resource type="Texture2D" uid="uid://b8yrfsx2i5r4d" path="res://Art/crossHair.png" id="5_awbc7"]
+[ext_resource type="FontFile" uid="uid://bd4cvhdrmxagj" path="res://Fonts/NotJamSlab14.ttf" id="5_rhojo"]
 [ext_resource type="Script" path="res://Scripts/Grid/GridLevelResource.gd" id="5_y37kf"]
 [ext_resource type="Script" path="res://Scripts/Commands/CommandDisplay.gd" id="6_65egh"]
 [ext_resource type="Texture2D" uid="uid://re6sp7henqtc" path="res://Art/Character/WHILE_neutral.png" id="6_evxij"]
@@ -24,75 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://bcdkdfn2vmlc3" path="res://Prefab/attack_preview.tscn" id="11_6c2l6"]
 [ext_resource type="Texture2D" uid="uid://c1sp4ycobfgo1" path="res://Art/small angy face.png" id="16_v6apa"]
 [ext_resource type="Texture2D" uid="uid://pe21r68uj4o0" path="res://Art/EnemyArrow.png" id="17_kkuai"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oslx0"]
-shader = ExtResource("1_o8arl")
-shader_parameter/anim = 1.0
-shader_parameter/bgColor = null
-shader_parameter/shineColor = null
-shader_parameter/posterizeAmount = 1
-shader_parameter/time = null
-
-[sub_resource type="Gradient" id="Gradient_hhspd"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_brbr2"]
-gradient = SubResource("Gradient_hhspd")
-width = 1200
-height = 1200
-
-[sub_resource type="Animation" id="Animation_gw8oo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/anim")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_jno5t"]
-resource_name = "closing"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/anim")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.133333, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_fk3fd"]
-resource_name = "opening"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/anim")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e7hds"]
-_data = {
-"RESET": SubResource("Animation_gw8oo"),
-"closing": SubResource("Animation_jno5t"),
-"opening": SubResource("Animation_fk3fd")
-}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xiwl1"]
 shader = ExtResource("6_ockrj")
@@ -148,33 +80,62 @@ offset = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Transition" type="Sprite2D" parent="."]
+[node name="Transition" parent="." instance=ExtResource("1_8q5g0")]
 unique_name_in_owner = true
-z_index = 100
-material = SubResource("ShaderMaterial_oslx0")
-texture = SubResource("GradientTexture2D_brbr2")
-script = ExtResource("2_ikpb4")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-libraries = {
-"": SubResource("AnimationLibrary_e7hds")
-}
-autoplay = "opening"
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_dkclg")
-level_data = ExtResource("2_i006t")
+level_data = ExtResource("4_5hjjy")
+save = ExtResource("4_4d2hy")
+next_level = "res://TestDialogueScene.tscn"
 
-[node name="TestLabel" type="Label" parent="GameManager"]
-offset_left = 394.0
-offset_top = -283.0
-offset_right = 475.0
-offset_bottom = -228.0
+[node name="ForLabel" type="Label" parent="GameManager"]
+z_index = 11
+offset_left = -539.0
+offset_top = 231.0
+offset_right = -300.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_rhojo")
+theme_override_font_sizes/font_size = 50
+text = "For"
+horizontal_alignment = 1
+
+[node name="DisplayLabel" type="Label" parent="GameManager"]
+z_index = 11
+offset_left = -250.0
+offset_top = 150.0
+offset_right = 250.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_rhojo")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="GameManager"]
+z_index = 11
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = -149.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_rhojo")
+theme_override_font_sizes/font_size = 50
+text = "For"
+horizontal_alignment = 1
+
+[node name="WhileLabel" type="Label" parent="GameManager"]
+offset_left = 312.0
+offset_top = -310.0
+offset_right = 551.0
+offset_bottom = -210.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Test
-"
+theme_override_fonts/font = ExtResource("5_rhojo")
+theme_override_font_sizes/font_size = 50
+text = "While
+5 HP"
+horizontal_alignment = 1
 
 [node name="Reticle" type="Sprite2D" parent="GameManager"]
 z_index = 10
@@ -324,7 +285,7 @@ position = Vector2(250, 20)
 texture = ExtResource("16_v6apa")
 
 [node name="Pointer" type="Sprite2D" parent="WhileLoop/AttackDisplay"]
-z_index = 2
+z_index = 10
 texture_filter = 1
 position = Vector2(-251, 75)
 texture = ExtResource("17_kkuai")
@@ -335,6 +296,8 @@ offset_left = -40.0
 offset_top = 10.0
 offset_right = 40.0
 offset_bottom = 50.0
+theme_override_fonts/normal_font = ExtResource("5_rhojo")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]NEXT"
 fit_content = true

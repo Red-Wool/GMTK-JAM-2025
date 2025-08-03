@@ -178,15 +178,15 @@ text = "While
 horizontal_alignment = 1
 
 [node name="IncomingAttacks" type="Label" parent="GameManager"]
-offset_left = -569.0
-offset_top = -318.0
-offset_right = -309.0
-offset_bottom = -213.0
+offset_left = -508.0
+offset_top = -285.0
+offset_right = -248.0
+offset_bottom = -228.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("5_rhojo")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 24
 text = "Incoming 
 Attacks"
 horizontal_alignment = 1
@@ -224,7 +224,7 @@ script = ExtResource("2_wg84c")
 [node name="CharacterSprite" type="Sprite2D" parent="ForLoop"]
 z_index = 1
 material = SubResource("ShaderMaterial_xiwl1")
-position = Vector2(-400, 0)
+position = Vector2(-420, 0)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_rkrjk")
 

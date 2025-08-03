@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbw3rxrj4j1ny"]
 
 [ext_resource type="Script" path="res://Scripts/Attack/AttackProjectile.gd" id="1_38j5a"]
-[ext_resource type="Texture2D" uid="uid://bcv3mum5yrcsr" path="res://Art/GMTKTempAssets2.png" id="2_6mew3"]
+[ext_resource type="Texture2D" uid="uid://cxc4dqi04m7vg" path="res://Art/While chibi-1.png.png" id="2_qkd2y"]
 
 [node name="AttackProjectile" type="Node2D"]
 z_index = 5
@@ -10,4 +10,4 @@ script = ExtResource("1_38j5a")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = 3.14159
-texture = ExtResource("2_6mew3")
+texture = ExtResource("2_qkd2y")

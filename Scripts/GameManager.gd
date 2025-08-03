@@ -22,6 +22,8 @@ var is_gameover : bool
 @onready var test_label : Label = $TestLabel
 @onready var aim_reticle : Sprite2D = $Reticle
 @onready var aim_reticle_preview : Sprite2D = $Preview
+
+@onready var choose_dir_sprite : Texture2D = preload("res://Art/chooseDir.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await get_tree().create_timer(.1).timeout
@@ -98,7 +100,7 @@ func _process(delta):
 			aim_reticle.position = lerp(aim_reticle.position,grid_manager._grid_to_world_position(aim_position), delta * 20.)
 	
 	if is_placing:
-		aim_reticle_preview.texture = selected_command.sprite
+		
 		aim_reticle_preview.modulate.a = .5
 		aim_reticle.modulate.a = 0.
 		aim_reticle_preview.global_position = aim_reticle.global_position
@@ -113,12 +115,14 @@ func _process(delta):
 			selected_index = aim_position.x
 			is_placing = true
 			aim_box = 0
+			aim_reticle_preview.texture = selected_command.sprite
 			aim_position = Vector2i(grid_manager.grid.grid.size()/2,grid_manager.grid.grid[0].grid_column.size()-1)
 		elif is_placing and !can_select_direction:
 			print("check")
 			if selected_command.can_choose_direction:
 				can_select_direction = true
 				aim_box = 3
+				aim_reticle_preview.texture = choose_dir_sprite
 			else:
 				selected_command._do_action(grid_manager, aim_position)
 				_end_place_item()

@@ -6,7 +6,8 @@ class_name AttackDisplay extends Sprite2D
 @onready var pointer_target : Sprite2D = $CommandDisplay
 var timer : float 
 
-@onready var attack_sprite : Texture2D = preload("res://Art/BasicAngryPixelBlocks.png")
+@onready var attack_sprite : Texture2D = preload("res://Art/small angy face.png")
+@onready var big_attack_sprite : Texture2D = preload("res://Art/Big angy face-1.png.png")
 @onready var waiting_sprite : Texture2D = preload("res://Art/Metronome-1.png.png")
 
 func _process(delta):
@@ -17,7 +18,7 @@ func _update_display(attacks : Array[WhileAttackResource], index : int):
 	for i in range(sprites.size()):
 		if i < attacks.size():
 			sprites[i].visible = true
-			sprites[i].texture = waiting_sprite if attacks[i].attack_lanes.size() == 0 else attack_sprite
+			sprites[i].texture = waiting_sprite if attacks[i].attack_lanes.size() == 0 else (big_attack_sprite if attacks[i].attack_lanes.size() > 1 else attack_sprite)
 		else:
 			sprites[i].visible = false
 		if index == i:

@@ -5,6 +5,9 @@ var is_dead : bool
 var commands : Array[CommandResource]
 
 @onready var sprite : Sprite2D = $CharacterSprite
+@onready var command_display : CommandDisplay = $CommandArea
+
+var max_item_count : int = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

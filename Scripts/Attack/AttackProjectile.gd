@@ -35,7 +35,6 @@ func _step(t : float):
 	move_time = t
 	
 	var new_pos = grid_position + velocity
-	print(new_pos)
 	special_trigger = grid_manager._move_projectile(self, new_pos, move_time)
 
 func _change_velocity(new_velocity : Vector2i):

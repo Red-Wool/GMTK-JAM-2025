@@ -24,7 +24,10 @@ var attack_previews : Array[Node2D]
 var current_step_count : int = 0
 var infinite_loop_step_count : int = 128
 
+var stop : bool
+
 @onready var sprite : Sprite2D = $CharacterSprite
+@onready var attack_display : AttackDisplay = $AttackDisplay
 
 @onready var attack_container_prefab = preload("res://Prefab/attack_holder.tscn")
 @onready var attack_preview_prefab = preload("res://Prefab/attack_preview.tscn")
@@ -39,12 +42,13 @@ func _ready():
 func _process(delta):
 	
 	attack_timer -= delta
-	if is_attacking and attack_timer <= 0.:
+	if is_attacking and attack_timer <= 0. and !stop:
 		attack_step.emit(attack_step_time)
 		current_step_count += 1
 		
 		if infinite_loop_step_count <= current_step_count:
 			_infinite_state()
+			stop = true
 			is_attacking = false
 		
 		var dead_check : bool = true
@@ -86,6 +90,7 @@ func _setup(hp : int, a : Array[WhileAttackResource]):
 			game_manager.level_data.grid_data.offset
 	
 	_preview(0)
+	_update_display()
 
 func _start_attack():
 	current_step_count = 0
@@ -104,7 +109,7 @@ func _start_attack():
 			grid_pos)
 		attack_step.connect(attack_projectile._step)
 	
-	attack_index += 1
+	attack_index = (attack_index + 1) % attacks.size()
 
 func _preview(index : int):
 	for i : int in range(attack_previews.size()):
@@ -114,7 +119,7 @@ func _preview(index : int):
 			preview.position = Vector2.ZERO
 		elif i == index:
 			preview.modulate.a = .5
-			preview.position = Vector2.RIGHT
+			preview.position = Vector2.RIGHT * 10
 		else:
 			preview.modulate.a = 0.
 		
@@ -130,4 +135,18 @@ func _infinite_state():
 
 func _end_turn():
 	game_manager._end_turn()
+	
+	
+	await get_tree().create_timer(1.).timeout
+	
+	_update_display()
+	
+	for p in attack_projectile_array:
+		if !p.is_paused:
+			p.queue_free()
+	attack_projectile_array.clear()
+	
 	is_attacking = false
+
+func _update_display():
+	attack_display._update_display(attacks, attack_index)

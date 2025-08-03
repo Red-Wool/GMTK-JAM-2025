@@ -7,6 +7,7 @@ var commands : Array[CommandResource]
 @onready var sprite : Sprite2D = $CharacterSprite
 @onready var command_display : CommandDisplay = $CommandArea
 
+@onready var hurt : AudioStreamPlayer = $Hurt
 var max_item_count : int = 6
 
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +37,9 @@ func _use_command(index : int):
 
 func _hurt(delay : float):
 	await get_tree().create_timer(delay * 2.).timeout
+	hurt.play()
+	sprite.skew = 10.
+	create_tween().set_ease(Tween.EASE_OUT).tween_property(sprite, "skew", 0, .2)
 	if commands.pop_back() == null:
 		is_dead = true
 		sprite.material.set_shader_parameter("isOn", true)

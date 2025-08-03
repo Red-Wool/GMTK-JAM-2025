@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://5xki7cjncade"]
+[gd_scene load_steps=44 format=3 uid="uid://5xki7cjncade"]
 
 [ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_8q5g0"]
 [ext_resource type="Shader" path="res://Scripts/blackhole.gdshader" id="1_bwtat"]
@@ -21,11 +21,13 @@
 [ext_resource type="Texture2D" uid="uid://cr7wwiom7qwi0" path="res://Art/bluescreen.png" id="7_bm7yt"]
 [ext_resource type="Script" path="res://Scripts/Attack/WhileLoop.gd" id="9_kwq8n"]
 [ext_resource type="PackedScene" uid="uid://dbw3rxrj4j1ny" path="res://Prefab/attack_projectile.tscn" id="10_4itp5"]
+[ext_resource type="AudioStream" uid="uid://dj1q7r6e1ps67" path="res://Move.wav" id="10_er8wc"]
 [ext_resource type="Texture2D" uid="uid://nwqkosmsm1tk" path="res://Art/empty_ass_inventory_lmaopng.png" id="10_lw0e6"]
 [ext_resource type="Script" path="res://Scripts/Attack/AttackDisplay.gd" id="10_tmfi4"]
 [ext_resource type="PackedScene" uid="uid://bcdkdfn2vmlc3" path="res://Prefab/attack_preview.tscn" id="11_6c2l6"]
 [ext_resource type="Texture2D" uid="uid://c1sp4ycobfgo1" path="res://Art/small angy face.png" id="16_v6apa"]
 [ext_resource type="Texture2D" uid="uid://pe21r68uj4o0" path="res://Art/EnemyArrow.png" id="17_kkuai"]
+[ext_resource type="AudioStream" uid="uid://ctu42q3a03pxv" path="res://SUKOSmack.wav" id="22_cgtaf"]
 [ext_resource type="Texture2D" uid="uid://dqq16aqt2w4hn" path="res://Resources/Blackhole.png" id="26_nuagv"]
 [ext_resource type="AudioStream" uid="uid://fonj6dsodfiw" path="res://Art/SpotiDownloader.com - planet inhabited entirely by frogs - Disuko.mp3" id="27_vqgvt"]
 
@@ -217,6 +219,9 @@ z_index = 5
 texture_filter = 1
 texture = ExtResource("6_sb7e5")
 
+[node name="Move" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("10_er8wc")
+
 [node name="ForLoop" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_wg84c")
@@ -301,6 +306,9 @@ texture_filter = 1
 position = Vector2(250, -20)
 texture = ExtResource("10_lw0e6")
 
+[node name="Hurt" type="AudioStreamPlayer" parent="ForLoop"]
+stream = ExtResource("22_cgtaf")
+
 [node name="WhileLoop" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("9_kwq8n")
@@ -373,6 +381,12 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]NEXT"
 fit_content = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WhileLoop"]
+stream = ExtResource("10_er8wc")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="WhileLoop"]
+stream = ExtResource("22_cgtaf")
 
 [node name="GridManager" type="Node2D" parent="."]
 unique_name_in_owner = true

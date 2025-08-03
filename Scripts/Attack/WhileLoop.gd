@@ -33,6 +33,9 @@ var stop : bool
 @onready var attack_preview_prefab = preload("res://Prefab/attack_preview.tscn")
 @onready var attack_projectile_prefab = preload("res://Prefab/attack_projectile.tscn")
 
+@onready var move_sfx : AudioStreamPlayer = $AudioStreamPlayer
+@onready var hurt : AudioStreamPlayer = $Hurt
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.material.set_shader_parameter("isOn", false)
@@ -49,6 +52,10 @@ func _process(delta):
 	if is_attacking and attack_timer <= 0. and !stop:
 		attack_step.emit(attack_step_time)
 		current_step_count += 1
+		
+		move_sfx.pitch_scale = default_attack_step_time / attack_step_time
+		move_sfx.play()
+		
 		
 		if infinite_loop_step_count <= current_step_count:
 			_infinite_state()
@@ -137,6 +144,9 @@ func _infinite_state():
 			
 			await get_tree().create_timer(.4).timeout
 			
+			hurt.play()
+			sprite.skew = -10.
+			create_tween().set_ease(Tween.EASE_OUT).tween_property(sprite, "skew", 0, .2)
 			if health <= 0:
 				sprite.material.set_shader_parameter("isOn", true)
 				is_dead = true

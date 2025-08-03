@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfv31uhjaou1k"]
+[gd_scene load_steps=19 format=3 uid="uid://ufutmaqt5auc"]
 
-[ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_sblyb"]
+[ext_resource type="PackedScene" uid="uid://bc33k4c50dp2g" path="res://Prefab/transition.tscn" id="1_sblyb"]
 [ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_ig3mg"]
 [ext_resource type="Shader" path="res://Scripts/Warp.gdshader" id="2_kxcm7"]
 [ext_resource type="Texture2D" uid="uid://n01k0jpbfdqq" path="res://Art/Character/WHILE_happy.png" id="6_sw686"]

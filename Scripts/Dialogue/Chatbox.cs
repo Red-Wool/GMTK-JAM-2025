@@ -11,6 +11,8 @@ public partial class Chatbox : Panel
 	Label nameTyping;
 	[Export] public Color FORColor;
 	[Export] public Color WHILEColor;
+	SceneTreeTimer timer;
+	bool doSkip = false;
 
 	public override void _Ready()
 	{
@@ -21,7 +23,11 @@ public partial class Chatbox : Panel
 
 	public override void _Process(double delta)
 	{
-
+		if (Input.IsActionPressed("ui_accept"))
+		{
+			timer.SetTimeLeft(0.01f);
+			doSkip = true;
+		}
 	}
 
 	public async void ProcessDialogue(int index)
@@ -32,12 +38,17 @@ public partial class Chatbox : Panel
 		{
 			if (chatMessages[index] is ChatMessageResource chat)
 			{
-				await ToSignal(GetTree().CreateTimer(chat.delayStart), "timeout");
+				timer = GetTree().CreateTimer(chat.delayStart);
+				await ToSignal(timer, "timeout");
 
 				nameTyping.Visible = true;
 				nameTyping.Text = chat.name + " is typing...";
 
-				await ToSignal(GetTree().CreateTimer(chat.delayType), "timeout");
+				if (!doSkip)
+				{
+					timer = GetTree().CreateTimer(chat.delayType);
+					await ToSignal(timer, "timeout");
+				}
 
 				nameTyping.Visible = false;
 
@@ -66,6 +77,8 @@ public partial class Chatbox : Panel
 				}
 				GetNode<ScrollContainer>("ScrollContainer").ScrollVertical = 1000;
 				index++;
+
+				doSkip = false;
 				
 			}
 			else if (chatMessages[index] is ChatEvent chatEvent)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bm086lb4ysh83"]
+[gd_scene load_steps=72 format=3 uid="uid://bm086lb4ysh83"]
 
 [ext_resource type="PackedScene" path="res://Prefab/transition.tscn" id="1_5ex23"]
 [ext_resource type="Texture2D" uid="uid://b2h15pyodfojv" path="res://Art/Character/FOR_happy.png" id="2_6osnk"]
@@ -716,6 +716,10 @@ animationName = &"FOR-Happy"
 default_font = ExtResource("12_8na6g")
 default_font_size = 28
 
+[sub_resource type="Theme" id="Theme_k5l4u"]
+default_font = ExtResource("12_8na6g")
+default_font_size = 28
+
 [node name="DialogueScene" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -811,6 +815,15 @@ offset_bottom = 389.0
 scale = Vector2(0.6, 0.6)
 theme = SubResource("Theme_lqjbd")
 text = "Nobody is typing"
+
+[node name="Label2" type="Label" parent="Chatbox"]
+offset_left = 7.0
+offset_top = -16.0
+offset_right = 266.0
+offset_bottom = 13.0
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_k5l4u")
+text = "Press Space to Skip"
 
 [node name="Continue" type="Label" parent="Chatbox"]
 visible = false

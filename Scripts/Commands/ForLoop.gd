@@ -38,7 +38,7 @@ func _use_command(index : int):
 func _hurt(delay : float):
 	await get_tree().create_timer(delay * 2.).timeout
 	hurt.play()
-	sprite.skew = 10.
+	sprite.skew = .1
 	create_tween().set_ease(Tween.EASE_OUT).tween_property(sprite, "skew", 0, .2)
 	if commands.pop_back() == null:
 		is_dead = true

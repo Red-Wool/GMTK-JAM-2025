@@ -145,7 +145,7 @@ func _infinite_state():
 			await get_tree().create_timer(.4).timeout
 			
 			hurt.play()
-			sprite.skew = -10.
+			sprite.skew = -.1
 			create_tween().set_ease(Tween.EASE_OUT).tween_property(sprite, "skew", 0, .2)
 			if health <= 0:
 				sprite.material.set_shader_parameter("isOn", true)
